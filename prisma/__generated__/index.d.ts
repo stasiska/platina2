@@ -1816,14 +1816,12 @@ export namespace Prisma {
     images: number
     apartments: number
     nearbyPlaces: number
-    reviews: number
   }
 
   export type NewBuildingComplexCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     images?: boolean | NewBuildingComplexCountOutputTypeCountImagesArgs
     apartments?: boolean | NewBuildingComplexCountOutputTypeCountApartmentsArgs
     nearbyPlaces?: boolean | NewBuildingComplexCountOutputTypeCountNearbyPlacesArgs
-    reviews?: boolean | NewBuildingComplexCountOutputTypeCountReviewsArgs
   }
 
   // Custom InputTypes
@@ -1856,13 +1854,6 @@ export namespace Prisma {
    */
   export type NewBuildingComplexCountOutputTypeCountNearbyPlacesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: NearbyPlaceWhereInput
-  }
-
-  /**
-   * NewBuildingComplexCountOutputType without action
-   */
-  export type NewBuildingComplexCountOutputTypeCountReviewsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ReviewWhereInput
   }
 
 
@@ -3120,9 +3111,9 @@ export namespace Prisma {
     name: string | null
     phone: string | null
     status: $Enums.ApplicationStatus | null
-    comment: string | null
     propertyType: string | null
     propertyId: number | null
+    link: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3132,9 +3123,9 @@ export namespace Prisma {
     name: string | null
     phone: string | null
     status: $Enums.ApplicationStatus | null
-    comment: string | null
     propertyType: string | null
     propertyId: number | null
+    link: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3144,9 +3135,9 @@ export namespace Prisma {
     name: number
     phone: number
     status: number
-    comment: number
     propertyType: number
     propertyId: number
+    link: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -3168,9 +3159,9 @@ export namespace Prisma {
     name?: true
     phone?: true
     status?: true
-    comment?: true
     propertyType?: true
     propertyId?: true
+    link?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3180,9 +3171,9 @@ export namespace Prisma {
     name?: true
     phone?: true
     status?: true
-    comment?: true
     propertyType?: true
     propertyId?: true
+    link?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3192,9 +3183,9 @@ export namespace Prisma {
     name?: true
     phone?: true
     status?: true
-    comment?: true
     propertyType?: true
     propertyId?: true
+    link?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -3291,9 +3282,9 @@ export namespace Prisma {
     name: string
     phone: string
     status: $Enums.ApplicationStatus
-    comment: string | null
     propertyType: string | null
     propertyId: number | null
+    link: string
     createdAt: Date
     updatedAt: Date
     _count: ApplicationCountAggregateOutputType | null
@@ -3322,9 +3313,9 @@ export namespace Prisma {
     name?: boolean
     phone?: boolean
     status?: boolean
-    comment?: boolean
     propertyType?: boolean
     propertyId?: boolean
+    link?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["application"]>
@@ -3334,9 +3325,9 @@ export namespace Prisma {
     name?: boolean
     phone?: boolean
     status?: boolean
-    comment?: boolean
     propertyType?: boolean
     propertyId?: boolean
+    link?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["application"]>
@@ -3346,9 +3337,9 @@ export namespace Prisma {
     name?: boolean
     phone?: boolean
     status?: boolean
-    comment?: boolean
     propertyType?: boolean
     propertyId?: boolean
+    link?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["application"]>
@@ -3358,14 +3349,14 @@ export namespace Prisma {
     name?: boolean
     phone?: boolean
     status?: boolean
-    comment?: boolean
     propertyType?: boolean
     propertyId?: boolean
+    link?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type ApplicationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "phone" | "status" | "comment" | "propertyType" | "propertyId" | "createdAt" | "updatedAt", ExtArgs["result"]["application"]>
+  export type ApplicationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "phone" | "status" | "propertyType" | "propertyId" | "link" | "createdAt" | "updatedAt", ExtArgs["result"]["application"]>
 
   export type $ApplicationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Application"
@@ -3375,9 +3366,9 @@ export namespace Prisma {
       name: string
       phone: string
       status: $Enums.ApplicationStatus
-      comment: string | null
       propertyType: string | null
       propertyId: number | null
+      link: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["application"]>
@@ -3807,9 +3798,9 @@ export namespace Prisma {
     readonly name: FieldRef<"Application", 'String'>
     readonly phone: FieldRef<"Application", 'String'>
     readonly status: FieldRef<"Application", 'ApplicationStatus'>
-    readonly comment: FieldRef<"Application", 'String'>
     readonly propertyType: FieldRef<"Application", 'String'>
     readonly propertyId: FieldRef<"Application", 'Int'>
+    readonly link: FieldRef<"Application", 'String'>
     readonly createdAt: FieldRef<"Application", 'DateTime'>
     readonly updatedAt: FieldRef<"Application", 'DateTime'>
   }
@@ -5841,7 +5832,6 @@ export namespace Prisma {
     images?: boolean | NewBuildingComplex$imagesArgs<ExtArgs>
     apartments?: boolean | NewBuildingComplex$apartmentsArgs<ExtArgs>
     nearbyPlaces?: boolean | NewBuildingComplex$nearbyPlacesArgs<ExtArgs>
-    reviews?: boolean | NewBuildingComplex$reviewsArgs<ExtArgs>
     _count?: boolean | NewBuildingComplexCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["newBuildingComplex"]>
 
@@ -5916,7 +5906,6 @@ export namespace Prisma {
     images?: boolean | NewBuildingComplex$imagesArgs<ExtArgs>
     apartments?: boolean | NewBuildingComplex$apartmentsArgs<ExtArgs>
     nearbyPlaces?: boolean | NewBuildingComplex$nearbyPlacesArgs<ExtArgs>
-    reviews?: boolean | NewBuildingComplex$reviewsArgs<ExtArgs>
     _count?: boolean | NewBuildingComplexCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type NewBuildingComplexIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -5928,7 +5917,6 @@ export namespace Prisma {
       images: Prisma.$ImagePayload<ExtArgs>[]
       apartments: Prisma.$NewBuildingApartmentPayload<ExtArgs>[]
       nearbyPlaces: Prisma.$NearbyPlacePayload<ExtArgs>[]
-      reviews: Prisma.$ReviewPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -6347,7 +6335,6 @@ export namespace Prisma {
     images<T extends NewBuildingComplex$imagesArgs<ExtArgs> = {}>(args?: Subset<T, NewBuildingComplex$imagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ImagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     apartments<T extends NewBuildingComplex$apartmentsArgs<ExtArgs> = {}>(args?: Subset<T, NewBuildingComplex$apartmentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NewBuildingApartmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     nearbyPlaces<T extends NewBuildingComplex$nearbyPlacesArgs<ExtArgs> = {}>(args?: Subset<T, NewBuildingComplex$nearbyPlacesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NearbyPlacePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    reviews<T extends NewBuildingComplex$reviewsArgs<ExtArgs> = {}>(args?: Subset<T, NewBuildingComplex$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6853,30 +6840,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: NearbyPlaceScalarFieldEnum | NearbyPlaceScalarFieldEnum[]
-  }
-
-  /**
-   * NewBuildingComplex.reviews
-   */
-  export type NewBuildingComplex$reviewsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Review
-     */
-    select?: ReviewSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Review
-     */
-    omit?: ReviewOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ReviewInclude<ExtArgs> | null
-    where?: ReviewWhereInput
-    orderBy?: ReviewOrderByWithRelationInput | ReviewOrderByWithRelationInput[]
-    cursor?: ReviewWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ReviewScalarFieldEnum | ReviewScalarFieldEnum[]
   }
 
   /**
@@ -9236,19 +9199,16 @@ export namespace Prisma {
 
   export type ReviewAvgAggregateOutputType = {
     id: number | null
-    complexId: number | null
     rating: number | null
   }
 
   export type ReviewSumAggregateOutputType = {
     id: number | null
-    complexId: number | null
     rating: number | null
   }
 
   export type ReviewMinAggregateOutputType = {
     id: number | null
-    complexId: number | null
     authorName: string | null
     rating: number | null
     comment: string | null
@@ -9257,7 +9217,6 @@ export namespace Prisma {
 
   export type ReviewMaxAggregateOutputType = {
     id: number | null
-    complexId: number | null
     authorName: string | null
     rating: number | null
     comment: string | null
@@ -9266,7 +9225,6 @@ export namespace Prisma {
 
   export type ReviewCountAggregateOutputType = {
     id: number
-    complexId: number
     authorName: number
     rating: number
     comment: number
@@ -9277,19 +9235,16 @@ export namespace Prisma {
 
   export type ReviewAvgAggregateInputType = {
     id?: true
-    complexId?: true
     rating?: true
   }
 
   export type ReviewSumAggregateInputType = {
     id?: true
-    complexId?: true
     rating?: true
   }
 
   export type ReviewMinAggregateInputType = {
     id?: true
-    complexId?: true
     authorName?: true
     rating?: true
     comment?: true
@@ -9298,7 +9253,6 @@ export namespace Prisma {
 
   export type ReviewMaxAggregateInputType = {
     id?: true
-    complexId?: true
     authorName?: true
     rating?: true
     comment?: true
@@ -9307,7 +9261,6 @@ export namespace Prisma {
 
   export type ReviewCountAggregateInputType = {
     id?: true
-    complexId?: true
     authorName?: true
     rating?: true
     comment?: true
@@ -9403,7 +9356,6 @@ export namespace Prisma {
 
   export type ReviewGroupByOutputType = {
     id: number
-    complexId: number
     authorName: string | null
     rating: number
     comment: string | null
@@ -9431,62 +9383,43 @@ export namespace Prisma {
 
   export type ReviewSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    complexId?: boolean
     authorName?: boolean
     rating?: boolean
     comment?: boolean
     createdAt?: boolean
-    complex?: boolean | NewBuildingComplexDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["review"]>
 
   export type ReviewSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    complexId?: boolean
     authorName?: boolean
     rating?: boolean
     comment?: boolean
     createdAt?: boolean
-    complex?: boolean | NewBuildingComplexDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["review"]>
 
   export type ReviewSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    complexId?: boolean
     authorName?: boolean
     rating?: boolean
     comment?: boolean
     createdAt?: boolean
-    complex?: boolean | NewBuildingComplexDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["review"]>
 
   export type ReviewSelectScalar = {
     id?: boolean
-    complexId?: boolean
     authorName?: boolean
     rating?: boolean
     comment?: boolean
     createdAt?: boolean
   }
 
-  export type ReviewOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "complexId" | "authorName" | "rating" | "comment" | "createdAt", ExtArgs["result"]["review"]>
-  export type ReviewInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    complex?: boolean | NewBuildingComplexDefaultArgs<ExtArgs>
-  }
-  export type ReviewIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    complex?: boolean | NewBuildingComplexDefaultArgs<ExtArgs>
-  }
-  export type ReviewIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    complex?: boolean | NewBuildingComplexDefaultArgs<ExtArgs>
-  }
+  export type ReviewOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "authorName" | "rating" | "comment" | "createdAt", ExtArgs["result"]["review"]>
 
   export type $ReviewPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Review"
-    objects: {
-      complex: Prisma.$NewBuildingComplexPayload<ExtArgs>
-    }
+    objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      complexId: number
       authorName: string | null
       rating: number
       comment: string | null
@@ -9885,7 +9818,6 @@ export namespace Prisma {
    */
   export interface Prisma__ReviewClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    complex<T extends NewBuildingComplexDefaultArgs<ExtArgs> = {}>(args?: Subset<T, NewBuildingComplexDefaultArgs<ExtArgs>>): Prisma__NewBuildingComplexClient<$Result.GetResult<Prisma.$NewBuildingComplexPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9916,7 +9848,6 @@ export namespace Prisma {
    */ 
   interface ReviewFieldRefs {
     readonly id: FieldRef<"Review", 'Int'>
-    readonly complexId: FieldRef<"Review", 'Int'>
     readonly authorName: FieldRef<"Review", 'String'>
     readonly rating: FieldRef<"Review", 'Int'>
     readonly comment: FieldRef<"Review", 'String'>
@@ -9938,10 +9869,6 @@ export namespace Prisma {
      */
     omit?: ReviewOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ReviewInclude<ExtArgs> | null
-    /**
      * Filter, which Review to fetch.
      */
     where: ReviewWhereUniqueInput
@@ -9960,10 +9887,6 @@ export namespace Prisma {
      */
     omit?: ReviewOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ReviewInclude<ExtArgs> | null
-    /**
      * Filter, which Review to fetch.
      */
     where: ReviewWhereUniqueInput
@@ -9981,10 +9904,6 @@ export namespace Prisma {
      * Omit specific fields from the Review
      */
     omit?: ReviewOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ReviewInclude<ExtArgs> | null
     /**
      * Filter, which Review to fetch.
      */
@@ -10034,10 +9953,6 @@ export namespace Prisma {
      */
     omit?: ReviewOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ReviewInclude<ExtArgs> | null
-    /**
      * Filter, which Review to fetch.
      */
     where?: ReviewWhereInput
@@ -10086,10 +10001,6 @@ export namespace Prisma {
      */
     omit?: ReviewOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ReviewInclude<ExtArgs> | null
-    /**
      * Filter, which Reviews to fetch.
      */
     where?: ReviewWhereInput
@@ -10133,10 +10044,6 @@ export namespace Prisma {
      */
     omit?: ReviewOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ReviewInclude<ExtArgs> | null
-    /**
      * The data needed to create a Review.
      */
     data: XOR<ReviewCreateInput, ReviewUncheckedCreateInput>
@@ -10170,10 +10077,6 @@ export namespace Prisma {
      */
     data: ReviewCreateManyInput | ReviewCreateManyInput[]
     skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ReviewIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -10188,10 +10091,6 @@ export namespace Prisma {
      * Omit specific fields from the Review
      */
     omit?: ReviewOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ReviewInclude<ExtArgs> | null
     /**
      * The data needed to update a Review.
      */
@@ -10244,10 +10143,6 @@ export namespace Prisma {
      * Limit how many Reviews to update.
      */
     limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ReviewIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -10262,10 +10157,6 @@ export namespace Prisma {
      * Omit specific fields from the Review
      */
     omit?: ReviewOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ReviewInclude<ExtArgs> | null
     /**
      * The filter to search for the Review to update in case it exists.
      */
@@ -10292,10 +10183,6 @@ export namespace Prisma {
      * Omit specific fields from the Review
      */
     omit?: ReviewOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ReviewInclude<ExtArgs> | null
     /**
      * Filter which Review to delete.
      */
@@ -10328,10 +10215,6 @@ export namespace Prisma {
      * Omit specific fields from the Review
      */
     omit?: ReviewOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ReviewInclude<ExtArgs> | null
   }
 
 
@@ -15318,9 +15201,9 @@ export namespace Prisma {
     name: 'name',
     phone: 'phone',
     status: 'status',
-    comment: 'comment',
     propertyType: 'propertyType',
     propertyId: 'propertyId',
+    link: 'link',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -15398,7 +15281,6 @@ export namespace Prisma {
 
   export const ReviewScalarFieldEnum: {
     id: 'id',
-    complexId: 'complexId',
     authorName: 'authorName',
     rating: 'rating',
     comment: 'comment',
@@ -15686,9 +15568,9 @@ export namespace Prisma {
     name?: StringFilter<"Application"> | string
     phone?: StringFilter<"Application"> | string
     status?: EnumApplicationStatusFilter<"Application"> | $Enums.ApplicationStatus
-    comment?: StringNullableFilter<"Application"> | string | null
     propertyType?: StringNullableFilter<"Application"> | string | null
     propertyId?: IntNullableFilter<"Application"> | number | null
+    link?: StringFilter<"Application"> | string
     createdAt?: DateTimeFilter<"Application"> | Date | string
     updatedAt?: DateTimeFilter<"Application"> | Date | string
   }
@@ -15698,9 +15580,9 @@ export namespace Prisma {
     name?: SortOrder
     phone?: SortOrder
     status?: SortOrder
-    comment?: SortOrderInput | SortOrder
     propertyType?: SortOrderInput | SortOrder
     propertyId?: SortOrderInput | SortOrder
+    link?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -15713,9 +15595,9 @@ export namespace Prisma {
     name?: StringFilter<"Application"> | string
     phone?: StringFilter<"Application"> | string
     status?: EnumApplicationStatusFilter<"Application"> | $Enums.ApplicationStatus
-    comment?: StringNullableFilter<"Application"> | string | null
     propertyType?: StringNullableFilter<"Application"> | string | null
     propertyId?: IntNullableFilter<"Application"> | number | null
+    link?: StringFilter<"Application"> | string
     createdAt?: DateTimeFilter<"Application"> | Date | string
     updatedAt?: DateTimeFilter<"Application"> | Date | string
   }, "id">
@@ -15725,9 +15607,9 @@ export namespace Prisma {
     name?: SortOrder
     phone?: SortOrder
     status?: SortOrder
-    comment?: SortOrderInput | SortOrder
     propertyType?: SortOrderInput | SortOrder
     propertyId?: SortOrderInput | SortOrder
+    link?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: ApplicationCountOrderByAggregateInput
@@ -15745,9 +15627,9 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Application"> | string
     phone?: StringWithAggregatesFilter<"Application"> | string
     status?: EnumApplicationStatusWithAggregatesFilter<"Application"> | $Enums.ApplicationStatus
-    comment?: StringNullableWithAggregatesFilter<"Application"> | string | null
     propertyType?: StringNullableWithAggregatesFilter<"Application"> | string | null
     propertyId?: IntNullableWithAggregatesFilter<"Application"> | number | null
+    link?: StringWithAggregatesFilter<"Application"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Application"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Application"> | Date | string
   }
@@ -15870,7 +15752,6 @@ export namespace Prisma {
     images?: ImageListRelationFilter
     apartments?: NewBuildingApartmentListRelationFilter
     nearbyPlaces?: NearbyPlaceListRelationFilter
-    reviews?: ReviewListRelationFilter
   }
 
   export type NewBuildingComplexOrderByWithRelationInput = {
@@ -15896,7 +15777,6 @@ export namespace Prisma {
     images?: ImageOrderByRelationAggregateInput
     apartments?: NewBuildingApartmentOrderByRelationAggregateInput
     nearbyPlaces?: NearbyPlaceOrderByRelationAggregateInput
-    reviews?: ReviewOrderByRelationAggregateInput
   }
 
   export type NewBuildingComplexWhereUniqueInput = Prisma.AtLeast<{
@@ -15925,7 +15805,6 @@ export namespace Prisma {
     images?: ImageListRelationFilter
     apartments?: NewBuildingApartmentListRelationFilter
     nearbyPlaces?: NearbyPlaceListRelationFilter
-    reviews?: ReviewListRelationFilter
   }, "id">
 
   export type NewBuildingComplexOrderByWithAggregationInput = {
@@ -16132,22 +16011,18 @@ export namespace Prisma {
     OR?: ReviewWhereInput[]
     NOT?: ReviewWhereInput | ReviewWhereInput[]
     id?: IntFilter<"Review"> | number
-    complexId?: IntFilter<"Review"> | number
     authorName?: StringNullableFilter<"Review"> | string | null
     rating?: IntFilter<"Review"> | number
     comment?: StringNullableFilter<"Review"> | string | null
     createdAt?: DateTimeFilter<"Review"> | Date | string
-    complex?: XOR<NewBuildingComplexScalarRelationFilter, NewBuildingComplexWhereInput>
   }
 
   export type ReviewOrderByWithRelationInput = {
     id?: SortOrder
-    complexId?: SortOrder
     authorName?: SortOrderInput | SortOrder
     rating?: SortOrder
     comment?: SortOrderInput | SortOrder
     createdAt?: SortOrder
-    complex?: NewBuildingComplexOrderByWithRelationInput
   }
 
   export type ReviewWhereUniqueInput = Prisma.AtLeast<{
@@ -16155,17 +16030,14 @@ export namespace Prisma {
     AND?: ReviewWhereInput | ReviewWhereInput[]
     OR?: ReviewWhereInput[]
     NOT?: ReviewWhereInput | ReviewWhereInput[]
-    complexId?: IntFilter<"Review"> | number
     authorName?: StringNullableFilter<"Review"> | string | null
     rating?: IntFilter<"Review"> | number
     comment?: StringNullableFilter<"Review"> | string | null
     createdAt?: DateTimeFilter<"Review"> | Date | string
-    complex?: XOR<NewBuildingComplexScalarRelationFilter, NewBuildingComplexWhereInput>
   }, "id">
 
   export type ReviewOrderByWithAggregationInput = {
     id?: SortOrder
-    complexId?: SortOrder
     authorName?: SortOrderInput | SortOrder
     rating?: SortOrder
     comment?: SortOrderInput | SortOrder
@@ -16182,7 +16054,6 @@ export namespace Prisma {
     OR?: ReviewScalarWhereWithAggregatesInput[]
     NOT?: ReviewScalarWhereWithAggregatesInput | ReviewScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Review"> | number
-    complexId?: IntWithAggregatesFilter<"Review"> | number
     authorName?: StringNullableWithAggregatesFilter<"Review"> | string | null
     rating?: IntWithAggregatesFilter<"Review"> | number
     comment?: StringNullableWithAggregatesFilter<"Review"> | string | null
@@ -16665,9 +16536,9 @@ export namespace Prisma {
     name: string
     phone: string
     status?: $Enums.ApplicationStatus
-    comment?: string | null
     propertyType?: string | null
     propertyId?: number | null
+    link: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -16677,9 +16548,9 @@ export namespace Prisma {
     name: string
     phone: string
     status?: $Enums.ApplicationStatus
-    comment?: string | null
     propertyType?: string | null
     propertyId?: number | null
+    link: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -16688,9 +16559,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     status?: EnumApplicationStatusFieldUpdateOperationsInput | $Enums.ApplicationStatus
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
     propertyType?: NullableStringFieldUpdateOperationsInput | string | null
     propertyId?: NullableIntFieldUpdateOperationsInput | number | null
+    link?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16700,9 +16571,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     status?: EnumApplicationStatusFieldUpdateOperationsInput | $Enums.ApplicationStatus
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
     propertyType?: NullableStringFieldUpdateOperationsInput | string | null
     propertyId?: NullableIntFieldUpdateOperationsInput | number | null
+    link?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16712,9 +16583,9 @@ export namespace Prisma {
     name: string
     phone: string
     status?: $Enums.ApplicationStatus
-    comment?: string | null
     propertyType?: string | null
     propertyId?: number | null
+    link: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -16723,9 +16594,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     status?: EnumApplicationStatusFieldUpdateOperationsInput | $Enums.ApplicationStatus
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
     propertyType?: NullableStringFieldUpdateOperationsInput | string | null
     propertyId?: NullableIntFieldUpdateOperationsInput | number | null
+    link?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16735,9 +16606,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     status?: EnumApplicationStatusFieldUpdateOperationsInput | $Enums.ApplicationStatus
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
     propertyType?: NullableStringFieldUpdateOperationsInput | string | null
     propertyId?: NullableIntFieldUpdateOperationsInput | number | null
+    link?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16839,7 +16710,6 @@ export namespace Prisma {
     images?: ImageCreateNestedManyWithoutNewBuildingComplexInput
     apartments?: NewBuildingApartmentCreateNestedManyWithoutComplexInput
     nearbyPlaces?: NearbyPlaceCreateNestedManyWithoutComplexInput
-    reviews?: ReviewCreateNestedManyWithoutComplexInput
   }
 
   export type NewBuildingComplexUncheckedCreateInput = {
@@ -16865,7 +16735,6 @@ export namespace Prisma {
     images?: ImageUncheckedCreateNestedManyWithoutNewBuildingComplexInput
     apartments?: NewBuildingApartmentUncheckedCreateNestedManyWithoutComplexInput
     nearbyPlaces?: NearbyPlaceUncheckedCreateNestedManyWithoutComplexInput
-    reviews?: ReviewUncheckedCreateNestedManyWithoutComplexInput
   }
 
   export type NewBuildingComplexUpdateInput = {
@@ -16890,7 +16759,6 @@ export namespace Prisma {
     images?: ImageUpdateManyWithoutNewBuildingComplexNestedInput
     apartments?: NewBuildingApartmentUpdateManyWithoutComplexNestedInput
     nearbyPlaces?: NearbyPlaceUpdateManyWithoutComplexNestedInput
-    reviews?: ReviewUpdateManyWithoutComplexNestedInput
   }
 
   export type NewBuildingComplexUncheckedUpdateInput = {
@@ -16916,7 +16784,6 @@ export namespace Prisma {
     images?: ImageUncheckedUpdateManyWithoutNewBuildingComplexNestedInput
     apartments?: NewBuildingApartmentUncheckedUpdateManyWithoutComplexNestedInput
     nearbyPlaces?: NearbyPlaceUncheckedUpdateManyWithoutComplexNestedInput
-    reviews?: ReviewUncheckedUpdateManyWithoutComplexNestedInput
   }
 
   export type NewBuildingComplexCreateManyInput = {
@@ -17139,12 +17006,10 @@ export namespace Prisma {
     rating: number
     comment?: string | null
     createdAt?: Date | string
-    complex: NewBuildingComplexCreateNestedOneWithoutReviewsInput
   }
 
   export type ReviewUncheckedCreateInput = {
     id?: number
-    complexId: number
     authorName?: string | null
     rating: number
     comment?: string | null
@@ -17156,12 +17021,10 @@ export namespace Prisma {
     rating?: IntFieldUpdateOperationsInput | number
     comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    complex?: NewBuildingComplexUpdateOneRequiredWithoutReviewsNestedInput
   }
 
   export type ReviewUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    complexId?: IntFieldUpdateOperationsInput | number
     authorName?: NullableStringFieldUpdateOperationsInput | string | null
     rating?: IntFieldUpdateOperationsInput | number
     comment?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17170,7 +17033,6 @@ export namespace Prisma {
 
   export type ReviewCreateManyInput = {
     id?: number
-    complexId: number
     authorName?: string | null
     rating: number
     comment?: string | null
@@ -17186,7 +17048,6 @@ export namespace Prisma {
 
   export type ReviewUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    complexId?: IntFieldUpdateOperationsInput | number
     authorName?: NullableStringFieldUpdateOperationsInput | string | null
     rating?: IntFieldUpdateOperationsInput | number
     comment?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17846,9 +17707,9 @@ export namespace Prisma {
     name?: SortOrder
     phone?: SortOrder
     status?: SortOrder
-    comment?: SortOrder
     propertyType?: SortOrder
     propertyId?: SortOrder
+    link?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -17863,9 +17724,9 @@ export namespace Prisma {
     name?: SortOrder
     phone?: SortOrder
     status?: SortOrder
-    comment?: SortOrder
     propertyType?: SortOrder
     propertyId?: SortOrder
+    link?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -17875,9 +17736,9 @@ export namespace Prisma {
     name?: SortOrder
     phone?: SortOrder
     status?: SortOrder
-    comment?: SortOrder
     propertyType?: SortOrder
     propertyId?: SortOrder
+    link?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -18040,12 +17901,6 @@ export namespace Prisma {
     none?: NearbyPlaceWhereInput
   }
 
-  export type ReviewListRelationFilter = {
-    every?: ReviewWhereInput
-    some?: ReviewWhereInput
-    none?: ReviewWhereInput
-  }
-
   export type ImageOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -18055,10 +17910,6 @@ export namespace Prisma {
   }
 
   export type NearbyPlaceOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type ReviewOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -18287,7 +18138,6 @@ export namespace Prisma {
 
   export type ReviewCountOrderByAggregateInput = {
     id?: SortOrder
-    complexId?: SortOrder
     authorName?: SortOrder
     rating?: SortOrder
     comment?: SortOrder
@@ -18296,13 +18146,11 @@ export namespace Prisma {
 
   export type ReviewAvgOrderByAggregateInput = {
     id?: SortOrder
-    complexId?: SortOrder
     rating?: SortOrder
   }
 
   export type ReviewMaxOrderByAggregateInput = {
     id?: SortOrder
-    complexId?: SortOrder
     authorName?: SortOrder
     rating?: SortOrder
     comment?: SortOrder
@@ -18311,7 +18159,6 @@ export namespace Prisma {
 
   export type ReviewMinOrderByAggregateInput = {
     id?: SortOrder
-    complexId?: SortOrder
     authorName?: SortOrder
     rating?: SortOrder
     comment?: SortOrder
@@ -18320,7 +18167,6 @@ export namespace Prisma {
 
   export type ReviewSumOrderByAggregateInput = {
     id?: SortOrder
-    complexId?: SortOrder
     rating?: SortOrder
   }
 
@@ -18749,13 +18595,6 @@ export namespace Prisma {
     connect?: NearbyPlaceWhereUniqueInput | NearbyPlaceWhereUniqueInput[]
   }
 
-  export type ReviewCreateNestedManyWithoutComplexInput = {
-    create?: XOR<ReviewCreateWithoutComplexInput, ReviewUncheckedCreateWithoutComplexInput> | ReviewCreateWithoutComplexInput[] | ReviewUncheckedCreateWithoutComplexInput[]
-    connectOrCreate?: ReviewCreateOrConnectWithoutComplexInput | ReviewCreateOrConnectWithoutComplexInput[]
-    createMany?: ReviewCreateManyComplexInputEnvelope
-    connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
-  }
-
   export type ImageUncheckedCreateNestedManyWithoutNewBuildingComplexInput = {
     create?: XOR<ImageCreateWithoutNewBuildingComplexInput, ImageUncheckedCreateWithoutNewBuildingComplexInput> | ImageCreateWithoutNewBuildingComplexInput[] | ImageUncheckedCreateWithoutNewBuildingComplexInput[]
     connectOrCreate?: ImageCreateOrConnectWithoutNewBuildingComplexInput | ImageCreateOrConnectWithoutNewBuildingComplexInput[]
@@ -18775,13 +18614,6 @@ export namespace Prisma {
     connectOrCreate?: NearbyPlaceCreateOrConnectWithoutComplexInput | NearbyPlaceCreateOrConnectWithoutComplexInput[]
     createMany?: NearbyPlaceCreateManyComplexInputEnvelope
     connect?: NearbyPlaceWhereUniqueInput | NearbyPlaceWhereUniqueInput[]
-  }
-
-  export type ReviewUncheckedCreateNestedManyWithoutComplexInput = {
-    create?: XOR<ReviewCreateWithoutComplexInput, ReviewUncheckedCreateWithoutComplexInput> | ReviewCreateWithoutComplexInput[] | ReviewUncheckedCreateWithoutComplexInput[]
-    connectOrCreate?: ReviewCreateOrConnectWithoutComplexInput | ReviewCreateOrConnectWithoutComplexInput[]
-    createMany?: ReviewCreateManyComplexInputEnvelope
-    connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
   }
 
   export type EnumBuildingClassFieldUpdateOperationsInput = {
@@ -18838,20 +18670,6 @@ export namespace Prisma {
     deleteMany?: NearbyPlaceScalarWhereInput | NearbyPlaceScalarWhereInput[]
   }
 
-  export type ReviewUpdateManyWithoutComplexNestedInput = {
-    create?: XOR<ReviewCreateWithoutComplexInput, ReviewUncheckedCreateWithoutComplexInput> | ReviewCreateWithoutComplexInput[] | ReviewUncheckedCreateWithoutComplexInput[]
-    connectOrCreate?: ReviewCreateOrConnectWithoutComplexInput | ReviewCreateOrConnectWithoutComplexInput[]
-    upsert?: ReviewUpsertWithWhereUniqueWithoutComplexInput | ReviewUpsertWithWhereUniqueWithoutComplexInput[]
-    createMany?: ReviewCreateManyComplexInputEnvelope
-    set?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
-    disconnect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
-    delete?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
-    connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
-    update?: ReviewUpdateWithWhereUniqueWithoutComplexInput | ReviewUpdateWithWhereUniqueWithoutComplexInput[]
-    updateMany?: ReviewUpdateManyWithWhereWithoutComplexInput | ReviewUpdateManyWithWhereWithoutComplexInput[]
-    deleteMany?: ReviewScalarWhereInput | ReviewScalarWhereInput[]
-  }
-
   export type ImageUncheckedUpdateManyWithoutNewBuildingComplexNestedInput = {
     create?: XOR<ImageCreateWithoutNewBuildingComplexInput, ImageUncheckedCreateWithoutNewBuildingComplexInput> | ImageCreateWithoutNewBuildingComplexInput[] | ImageUncheckedCreateWithoutNewBuildingComplexInput[]
     connectOrCreate?: ImageCreateOrConnectWithoutNewBuildingComplexInput | ImageCreateOrConnectWithoutNewBuildingComplexInput[]
@@ -18892,20 +18710,6 @@ export namespace Prisma {
     update?: NearbyPlaceUpdateWithWhereUniqueWithoutComplexInput | NearbyPlaceUpdateWithWhereUniqueWithoutComplexInput[]
     updateMany?: NearbyPlaceUpdateManyWithWhereWithoutComplexInput | NearbyPlaceUpdateManyWithWhereWithoutComplexInput[]
     deleteMany?: NearbyPlaceScalarWhereInput | NearbyPlaceScalarWhereInput[]
-  }
-
-  export type ReviewUncheckedUpdateManyWithoutComplexNestedInput = {
-    create?: XOR<ReviewCreateWithoutComplexInput, ReviewUncheckedCreateWithoutComplexInput> | ReviewCreateWithoutComplexInput[] | ReviewUncheckedCreateWithoutComplexInput[]
-    connectOrCreate?: ReviewCreateOrConnectWithoutComplexInput | ReviewCreateOrConnectWithoutComplexInput[]
-    upsert?: ReviewUpsertWithWhereUniqueWithoutComplexInput | ReviewUpsertWithWhereUniqueWithoutComplexInput[]
-    createMany?: ReviewCreateManyComplexInputEnvelope
-    set?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
-    disconnect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
-    delete?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
-    connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
-    update?: ReviewUpdateWithWhereUniqueWithoutComplexInput | ReviewUpdateWithWhereUniqueWithoutComplexInput[]
-    updateMany?: ReviewUpdateManyWithWhereWithoutComplexInput | ReviewUpdateManyWithWhereWithoutComplexInput[]
-    deleteMany?: ReviewScalarWhereInput | ReviewScalarWhereInput[]
   }
 
   export type NewBuildingComplexCreateNestedOneWithoutApartmentsInput = {
@@ -18976,20 +18780,6 @@ export namespace Prisma {
     upsert?: NewBuildingComplexUpsertWithoutNearbyPlacesInput
     connect?: NewBuildingComplexWhereUniqueInput
     update?: XOR<XOR<NewBuildingComplexUpdateToOneWithWhereWithoutNearbyPlacesInput, NewBuildingComplexUpdateWithoutNearbyPlacesInput>, NewBuildingComplexUncheckedUpdateWithoutNearbyPlacesInput>
-  }
-
-  export type NewBuildingComplexCreateNestedOneWithoutReviewsInput = {
-    create?: XOR<NewBuildingComplexCreateWithoutReviewsInput, NewBuildingComplexUncheckedCreateWithoutReviewsInput>
-    connectOrCreate?: NewBuildingComplexCreateOrConnectWithoutReviewsInput
-    connect?: NewBuildingComplexWhereUniqueInput
-  }
-
-  export type NewBuildingComplexUpdateOneRequiredWithoutReviewsNestedInput = {
-    create?: XOR<NewBuildingComplexCreateWithoutReviewsInput, NewBuildingComplexUncheckedCreateWithoutReviewsInput>
-    connectOrCreate?: NewBuildingComplexCreateOrConnectWithoutReviewsInput
-    upsert?: NewBuildingComplexUpsertWithoutReviewsInput
-    connect?: NewBuildingComplexWhereUniqueInput
-    update?: XOR<XOR<NewBuildingComplexUpdateToOneWithWhereWithoutReviewsInput, NewBuildingComplexUpdateWithoutReviewsInput>, NewBuildingComplexUncheckedUpdateWithoutReviewsInput>
   }
 
   export type ImageCreateNestedManyWithoutReadyApartmentInput = {
@@ -19416,7 +19206,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     apartments?: NewBuildingApartmentCreateNestedManyWithoutComplexInput
     nearbyPlaces?: NearbyPlaceCreateNestedManyWithoutComplexInput
-    reviews?: ReviewCreateNestedManyWithoutComplexInput
   }
 
   export type NewBuildingComplexUncheckedCreateWithoutImagesInput = {
@@ -19441,7 +19230,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     apartments?: NewBuildingApartmentUncheckedCreateNestedManyWithoutComplexInput
     nearbyPlaces?: NearbyPlaceUncheckedCreateNestedManyWithoutComplexInput
-    reviews?: ReviewUncheckedCreateNestedManyWithoutComplexInput
   }
 
   export type NewBuildingComplexCreateOrConnectWithoutImagesInput = {
@@ -19657,7 +19445,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     apartments?: NewBuildingApartmentUpdateManyWithoutComplexNestedInput
     nearbyPlaces?: NearbyPlaceUpdateManyWithoutComplexNestedInput
-    reviews?: ReviewUpdateManyWithoutComplexNestedInput
   }
 
   export type NewBuildingComplexUncheckedUpdateWithoutImagesInput = {
@@ -19682,7 +19469,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     apartments?: NewBuildingApartmentUncheckedUpdateManyWithoutComplexNestedInput
     nearbyPlaces?: NearbyPlaceUncheckedUpdateManyWithoutComplexNestedInput
-    reviews?: ReviewUncheckedUpdateManyWithoutComplexNestedInput
   }
 
   export type NewBuildingApartmentUpsertWithoutImagesInput = {
@@ -19982,31 +19768,6 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type ReviewCreateWithoutComplexInput = {
-    authorName?: string | null
-    rating: number
-    comment?: string | null
-    createdAt?: Date | string
-  }
-
-  export type ReviewUncheckedCreateWithoutComplexInput = {
-    id?: number
-    authorName?: string | null
-    rating: number
-    comment?: string | null
-    createdAt?: Date | string
-  }
-
-  export type ReviewCreateOrConnectWithoutComplexInput = {
-    where: ReviewWhereUniqueInput
-    create: XOR<ReviewCreateWithoutComplexInput, ReviewUncheckedCreateWithoutComplexInput>
-  }
-
-  export type ReviewCreateManyComplexInputEnvelope = {
-    data: ReviewCreateManyComplexInput | ReviewCreateManyComplexInput[]
-    skipDuplicates?: boolean
-  }
-
   export type ImageUpsertWithWhereUniqueWithoutNewBuildingComplexInput = {
     where: ImageWhereUniqueInput
     update: XOR<ImageUpdateWithoutNewBuildingComplexInput, ImageUncheckedUpdateWithoutNewBuildingComplexInput>
@@ -20098,34 +19859,6 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"NearbyPlace"> | Date | string
   }
 
-  export type ReviewUpsertWithWhereUniqueWithoutComplexInput = {
-    where: ReviewWhereUniqueInput
-    update: XOR<ReviewUpdateWithoutComplexInput, ReviewUncheckedUpdateWithoutComplexInput>
-    create: XOR<ReviewCreateWithoutComplexInput, ReviewUncheckedCreateWithoutComplexInput>
-  }
-
-  export type ReviewUpdateWithWhereUniqueWithoutComplexInput = {
-    where: ReviewWhereUniqueInput
-    data: XOR<ReviewUpdateWithoutComplexInput, ReviewUncheckedUpdateWithoutComplexInput>
-  }
-
-  export type ReviewUpdateManyWithWhereWithoutComplexInput = {
-    where: ReviewScalarWhereInput
-    data: XOR<ReviewUpdateManyMutationInput, ReviewUncheckedUpdateManyWithoutComplexInput>
-  }
-
-  export type ReviewScalarWhereInput = {
-    AND?: ReviewScalarWhereInput | ReviewScalarWhereInput[]
-    OR?: ReviewScalarWhereInput[]
-    NOT?: ReviewScalarWhereInput | ReviewScalarWhereInput[]
-    id?: IntFilter<"Review"> | number
-    complexId?: IntFilter<"Review"> | number
-    authorName?: StringNullableFilter<"Review"> | string | null
-    rating?: IntFilter<"Review"> | number
-    comment?: StringNullableFilter<"Review"> | string | null
-    createdAt?: DateTimeFilter<"Review"> | Date | string
-  }
-
   export type NewBuildingComplexCreateWithoutApartmentsInput = {
     name: string
     address: string
@@ -20147,7 +19880,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     images?: ImageCreateNestedManyWithoutNewBuildingComplexInput
     nearbyPlaces?: NearbyPlaceCreateNestedManyWithoutComplexInput
-    reviews?: ReviewCreateNestedManyWithoutComplexInput
   }
 
   export type NewBuildingComplexUncheckedCreateWithoutApartmentsInput = {
@@ -20172,7 +19904,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     images?: ImageUncheckedCreateNestedManyWithoutNewBuildingComplexInput
     nearbyPlaces?: NearbyPlaceUncheckedCreateNestedManyWithoutComplexInput
-    reviews?: ReviewUncheckedCreateNestedManyWithoutComplexInput
   }
 
   export type NewBuildingComplexCreateOrConnectWithoutApartmentsInput = {
@@ -20243,7 +19974,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     images?: ImageUpdateManyWithoutNewBuildingComplexNestedInput
     nearbyPlaces?: NearbyPlaceUpdateManyWithoutComplexNestedInput
-    reviews?: ReviewUpdateManyWithoutComplexNestedInput
   }
 
   export type NewBuildingComplexUncheckedUpdateWithoutApartmentsInput = {
@@ -20268,7 +19998,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     images?: ImageUncheckedUpdateManyWithoutNewBuildingComplexNestedInput
     nearbyPlaces?: NearbyPlaceUncheckedUpdateManyWithoutComplexNestedInput
-    reviews?: ReviewUncheckedUpdateManyWithoutComplexNestedInput
   }
 
   export type ImageUpsertWithWhereUniqueWithoutNewBuildingApartmentInput = {
@@ -20308,7 +20037,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     images?: ImageCreateNestedManyWithoutNewBuildingComplexInput
     apartments?: NewBuildingApartmentCreateNestedManyWithoutComplexInput
-    reviews?: ReviewCreateNestedManyWithoutComplexInput
   }
 
   export type NewBuildingComplexUncheckedCreateWithoutNearbyPlacesInput = {
@@ -20333,7 +20061,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     images?: ImageUncheckedCreateNestedManyWithoutNewBuildingComplexInput
     apartments?: NewBuildingApartmentUncheckedCreateNestedManyWithoutComplexInput
-    reviews?: ReviewUncheckedCreateNestedManyWithoutComplexInput
   }
 
   export type NewBuildingComplexCreateOrConnectWithoutNearbyPlacesInput = {
@@ -20373,7 +20100,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     images?: ImageUpdateManyWithoutNewBuildingComplexNestedInput
     apartments?: NewBuildingApartmentUpdateManyWithoutComplexNestedInput
-    reviews?: ReviewUpdateManyWithoutComplexNestedInput
   }
 
   export type NewBuildingComplexUncheckedUpdateWithoutNearbyPlacesInput = {
@@ -20398,121 +20124,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     images?: ImageUncheckedUpdateManyWithoutNewBuildingComplexNestedInput
     apartments?: NewBuildingApartmentUncheckedUpdateManyWithoutComplexNestedInput
-    reviews?: ReviewUncheckedUpdateManyWithoutComplexNestedInput
-  }
-
-  export type NewBuildingComplexCreateWithoutReviewsInput = {
-    name: string
-    address: string
-    district?: string | null
-    metro?: string | null
-    metroDistance?: number | null
-    developer: string
-    priceFrom: number
-    areaFrom?: number | null
-    buildingClass: $Enums.BuildingClass
-    floors?: number | null
-    totalApartments?: number | null
-    availableApartments?: number | null
-    completionDate?: Date | string | null
-    height?: number | null
-    hasParking?: boolean
-    description?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    images?: ImageCreateNestedManyWithoutNewBuildingComplexInput
-    apartments?: NewBuildingApartmentCreateNestedManyWithoutComplexInput
-    nearbyPlaces?: NearbyPlaceCreateNestedManyWithoutComplexInput
-  }
-
-  export type NewBuildingComplexUncheckedCreateWithoutReviewsInput = {
-    id?: number
-    name: string
-    address: string
-    district?: string | null
-    metro?: string | null
-    metroDistance?: number | null
-    developer: string
-    priceFrom: number
-    areaFrom?: number | null
-    buildingClass: $Enums.BuildingClass
-    floors?: number | null
-    totalApartments?: number | null
-    availableApartments?: number | null
-    completionDate?: Date | string | null
-    height?: number | null
-    hasParking?: boolean
-    description?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    images?: ImageUncheckedCreateNestedManyWithoutNewBuildingComplexInput
-    apartments?: NewBuildingApartmentUncheckedCreateNestedManyWithoutComplexInput
-    nearbyPlaces?: NearbyPlaceUncheckedCreateNestedManyWithoutComplexInput
-  }
-
-  export type NewBuildingComplexCreateOrConnectWithoutReviewsInput = {
-    where: NewBuildingComplexWhereUniqueInput
-    create: XOR<NewBuildingComplexCreateWithoutReviewsInput, NewBuildingComplexUncheckedCreateWithoutReviewsInput>
-  }
-
-  export type NewBuildingComplexUpsertWithoutReviewsInput = {
-    update: XOR<NewBuildingComplexUpdateWithoutReviewsInput, NewBuildingComplexUncheckedUpdateWithoutReviewsInput>
-    create: XOR<NewBuildingComplexCreateWithoutReviewsInput, NewBuildingComplexUncheckedCreateWithoutReviewsInput>
-    where?: NewBuildingComplexWhereInput
-  }
-
-  export type NewBuildingComplexUpdateToOneWithWhereWithoutReviewsInput = {
-    where?: NewBuildingComplexWhereInput
-    data: XOR<NewBuildingComplexUpdateWithoutReviewsInput, NewBuildingComplexUncheckedUpdateWithoutReviewsInput>
-  }
-
-  export type NewBuildingComplexUpdateWithoutReviewsInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    district?: NullableStringFieldUpdateOperationsInput | string | null
-    metro?: NullableStringFieldUpdateOperationsInput | string | null
-    metroDistance?: NullableIntFieldUpdateOperationsInput | number | null
-    developer?: StringFieldUpdateOperationsInput | string
-    priceFrom?: IntFieldUpdateOperationsInput | number
-    areaFrom?: NullableIntFieldUpdateOperationsInput | number | null
-    buildingClass?: EnumBuildingClassFieldUpdateOperationsInput | $Enums.BuildingClass
-    floors?: NullableIntFieldUpdateOperationsInput | number | null
-    totalApartments?: NullableIntFieldUpdateOperationsInput | number | null
-    availableApartments?: NullableIntFieldUpdateOperationsInput | number | null
-    completionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    height?: NullableIntFieldUpdateOperationsInput | number | null
-    hasParking?: BoolFieldUpdateOperationsInput | boolean
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    images?: ImageUpdateManyWithoutNewBuildingComplexNestedInput
-    apartments?: NewBuildingApartmentUpdateManyWithoutComplexNestedInput
-    nearbyPlaces?: NearbyPlaceUpdateManyWithoutComplexNestedInput
-  }
-
-  export type NewBuildingComplexUncheckedUpdateWithoutReviewsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    district?: NullableStringFieldUpdateOperationsInput | string | null
-    metro?: NullableStringFieldUpdateOperationsInput | string | null
-    metroDistance?: NullableIntFieldUpdateOperationsInput | number | null
-    developer?: StringFieldUpdateOperationsInput | string
-    priceFrom?: IntFieldUpdateOperationsInput | number
-    areaFrom?: NullableIntFieldUpdateOperationsInput | number | null
-    buildingClass?: EnumBuildingClassFieldUpdateOperationsInput | $Enums.BuildingClass
-    floors?: NullableIntFieldUpdateOperationsInput | number | null
-    totalApartments?: NullableIntFieldUpdateOperationsInput | number | null
-    availableApartments?: NullableIntFieldUpdateOperationsInput | number | null
-    completionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    height?: NullableIntFieldUpdateOperationsInput | number | null
-    hasParking?: BoolFieldUpdateOperationsInput | boolean
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    images?: ImageUncheckedUpdateManyWithoutNewBuildingComplexNestedInput
-    apartments?: NewBuildingApartmentUncheckedUpdateManyWithoutComplexNestedInput
-    nearbyPlaces?: NearbyPlaceUncheckedUpdateManyWithoutComplexNestedInput
   }
 
   export type ImageCreateWithoutReadyApartmentInput = {
@@ -20734,14 +20345,6 @@ export namespace Prisma {
     createdAt?: Date | string
   }
 
-  export type ReviewCreateManyComplexInput = {
-    id?: number
-    authorName?: string | null
-    rating: number
-    comment?: string | null
-    createdAt?: Date | string
-  }
-
   export type ImageUpdateWithoutNewBuildingComplexInput = {
     url?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -20831,29 +20434,6 @@ export namespace Prisma {
     category?: StringFieldUpdateOperationsInput | string
     distance?: NullableIntFieldUpdateOperationsInput | number | null
     icon?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ReviewUpdateWithoutComplexInput = {
-    authorName?: NullableStringFieldUpdateOperationsInput | string | null
-    rating?: IntFieldUpdateOperationsInput | number
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ReviewUncheckedUpdateWithoutComplexInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    authorName?: NullableStringFieldUpdateOperationsInput | string | null
-    rating?: IntFieldUpdateOperationsInput | number
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ReviewUncheckedUpdateManyWithoutComplexInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    authorName?: NullableStringFieldUpdateOperationsInput | string | null
-    rating?: IntFieldUpdateOperationsInput | number
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 

@@ -8,12 +8,13 @@ import { RentalApartmetsModule } from './rental-apartmets/rental-apartmets.modul
 import { CountryPropertyModule } from './country-property/country-property.module';
 import { CommercialPropertyModule } from './commercial-property/commercial-property.module';
 import { S3Module } from './s3/s3.module';
+import { LeadModule } from './lead/lead.module';
 
 
 @Module({
   imports: [ConfigModule.forRoot({
     isGlobal: true
-  }), PrismaModule, NewBuildingComplexModule, ReadyApartmentModule, NewBuildingApartmentModule, RentalApartmetsModule, CountryPropertyModule, CommercialPropertyModule, S3Module],
+  }), PrismaModule, NewBuildingComplexModule, ReadyApartmentModule, NewBuildingApartmentModule, RentalApartmetsModule, CountryPropertyModule, CommercialPropertyModule, S3Module, LeadModule],
   controllers: [],
   providers: [
   ],
