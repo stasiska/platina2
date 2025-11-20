@@ -128,9 +128,6 @@ model NewBuildingComplex {
   // Места поблизости
   nearbyPlaces NearbyPlace[]
 
-  // Отзывы
-  reviews Review[]
-
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -176,9 +173,7 @@ model NearbyPlace {
 // Review (отзывы к комплексам)
 // -----------------------
 model Review {
-  id        Int                @id @default(autoincrement())
-  complexId Int
-  complex   NewBuildingComplex @relation(fields: [complexId], references: [id], onDelete: Cascade)
+  id Int @id @default(autoincrement())
 
   authorName String?
   rating     Int // 1–5

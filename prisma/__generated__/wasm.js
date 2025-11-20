@@ -198,7 +198,6 @@ exports.Prisma.NearbyPlaceScalarFieldEnum = {
 
 exports.Prisma.ReviewScalarFieldEnum = {
   id: 'id',
-  complexId: 'complexId',
   authorName: 'authorName',
   rating: 'rating',
   comment: 'comment',

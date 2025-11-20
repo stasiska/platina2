@@ -16,7 +16,6 @@ export class NewBuildingComplexService {
         images: true,
         apartments: { include: { images: true } },
         nearbyPlaces: true,
-        reviews: true,
       },
     });
   }
@@ -61,7 +60,6 @@ export class NewBuildingComplexService {
           images: true,
           apartments: { include: { images: true } },
           nearbyPlaces: true,
-          reviews: true,
         },
       }),
       this.prisma.newBuildingComplex.count({ where }),
@@ -85,7 +83,6 @@ export class NewBuildingComplexService {
         images: true,
         apartments: { include: { images: true } },
         nearbyPlaces: true,
-        reviews: true,
       },
     });
 
@@ -102,7 +99,6 @@ export class NewBuildingComplexService {
         images: true,
         apartments: true,
         nearbyPlaces: true,
-        reviews: true,
       },
     });
   }
