@@ -7,13 +7,16 @@ import {
   IsString,
   IsNumberString,
   IsEnum,
+  IsInt,
+  Min,
 } from 'class-validator';
 import { BuildingClass } from 'prisma/__generated__';
 
 export class PropertyPaginationDto {
   @IsOptional()
   @Type(() => Number)
-  @IsPositive()
+  @IsInt({ message: 'skip должен быть целым числом' })
+  @Min(0, { message: 'skip не может быть отрицательным' })
   skip?: number = 0;
 
   @IsOptional()

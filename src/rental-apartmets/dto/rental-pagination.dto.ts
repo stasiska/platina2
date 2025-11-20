@@ -7,12 +7,14 @@ import {
   IsNumberString,
   Min,
   IsString,
+  IsInt,
 } from 'class-validator';
 
 export class RentalPaginationDto {
   @IsOptional()
   @Type(() => Number)
-  @IsPositive()
+  @IsInt({ message: 'skip должен быть целым числом' })
+  @Min(0, { message: 'skip не может быть отрицательным' })
   skip?: number = 0;
 
   @IsOptional()
