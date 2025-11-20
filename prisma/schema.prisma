@@ -56,9 +56,9 @@ model Application {
   name        String
   phone       String
   status      ApplicationStatus @default(NEW)
-  comment     String?           // дополнительный комментарий от клиента
   propertyType String?          // тип объекта (новостройка, аренда и т.д.)
   propertyId  Int?              // ID объекта если привязан
+  link        String
   createdAt   DateTime          @default(now())
   updatedAt   DateTime          @updatedAt
 }

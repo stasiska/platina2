@@ -3120,9 +3120,9 @@ export namespace Prisma {
     name: string | null
     phone: string | null
     status: $Enums.ApplicationStatus | null
-    comment: string | null
     propertyType: string | null
     propertyId: number | null
+    link: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3132,9 +3132,9 @@ export namespace Prisma {
     name: string | null
     phone: string | null
     status: $Enums.ApplicationStatus | null
-    comment: string | null
     propertyType: string | null
     propertyId: number | null
+    link: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3144,9 +3144,9 @@ export namespace Prisma {
     name: number
     phone: number
     status: number
-    comment: number
     propertyType: number
     propertyId: number
+    link: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -3168,9 +3168,9 @@ export namespace Prisma {
     name?: true
     phone?: true
     status?: true
-    comment?: true
     propertyType?: true
     propertyId?: true
+    link?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3180,9 +3180,9 @@ export namespace Prisma {
     name?: true
     phone?: true
     status?: true
-    comment?: true
     propertyType?: true
     propertyId?: true
+    link?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3192,9 +3192,9 @@ export namespace Prisma {
     name?: true
     phone?: true
     status?: true
-    comment?: true
     propertyType?: true
     propertyId?: true
+    link?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -3291,9 +3291,9 @@ export namespace Prisma {
     name: string
     phone: string
     status: $Enums.ApplicationStatus
-    comment: string | null
     propertyType: string | null
     propertyId: number | null
+    link: string
     createdAt: Date
     updatedAt: Date
     _count: ApplicationCountAggregateOutputType | null
@@ -3322,9 +3322,9 @@ export namespace Prisma {
     name?: boolean
     phone?: boolean
     status?: boolean
-    comment?: boolean
     propertyType?: boolean
     propertyId?: boolean
+    link?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["application"]>
@@ -3334,9 +3334,9 @@ export namespace Prisma {
     name?: boolean
     phone?: boolean
     status?: boolean
-    comment?: boolean
     propertyType?: boolean
     propertyId?: boolean
+    link?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["application"]>
@@ -3346,9 +3346,9 @@ export namespace Prisma {
     name?: boolean
     phone?: boolean
     status?: boolean
-    comment?: boolean
     propertyType?: boolean
     propertyId?: boolean
+    link?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["application"]>
@@ -3358,14 +3358,14 @@ export namespace Prisma {
     name?: boolean
     phone?: boolean
     status?: boolean
-    comment?: boolean
     propertyType?: boolean
     propertyId?: boolean
+    link?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type ApplicationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "phone" | "status" | "comment" | "propertyType" | "propertyId" | "createdAt" | "updatedAt", ExtArgs["result"]["application"]>
+  export type ApplicationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "phone" | "status" | "propertyType" | "propertyId" | "link" | "createdAt" | "updatedAt", ExtArgs["result"]["application"]>
 
   export type $ApplicationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Application"
@@ -3375,9 +3375,9 @@ export namespace Prisma {
       name: string
       phone: string
       status: $Enums.ApplicationStatus
-      comment: string | null
       propertyType: string | null
       propertyId: number | null
+      link: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["application"]>
@@ -3807,9 +3807,9 @@ export namespace Prisma {
     readonly name: FieldRef<"Application", 'String'>
     readonly phone: FieldRef<"Application", 'String'>
     readonly status: FieldRef<"Application", 'ApplicationStatus'>
-    readonly comment: FieldRef<"Application", 'String'>
     readonly propertyType: FieldRef<"Application", 'String'>
     readonly propertyId: FieldRef<"Application", 'Int'>
+    readonly link: FieldRef<"Application", 'String'>
     readonly createdAt: FieldRef<"Application", 'DateTime'>
     readonly updatedAt: FieldRef<"Application", 'DateTime'>
   }
@@ -15318,9 +15318,9 @@ export namespace Prisma {
     name: 'name',
     phone: 'phone',
     status: 'status',
-    comment: 'comment',
     propertyType: 'propertyType',
     propertyId: 'propertyId',
+    link: 'link',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -15686,9 +15686,9 @@ export namespace Prisma {
     name?: StringFilter<"Application"> | string
     phone?: StringFilter<"Application"> | string
     status?: EnumApplicationStatusFilter<"Application"> | $Enums.ApplicationStatus
-    comment?: StringNullableFilter<"Application"> | string | null
     propertyType?: StringNullableFilter<"Application"> | string | null
     propertyId?: IntNullableFilter<"Application"> | number | null
+    link?: StringFilter<"Application"> | string
     createdAt?: DateTimeFilter<"Application"> | Date | string
     updatedAt?: DateTimeFilter<"Application"> | Date | string
   }
@@ -15698,9 +15698,9 @@ export namespace Prisma {
     name?: SortOrder
     phone?: SortOrder
     status?: SortOrder
-    comment?: SortOrderInput | SortOrder
     propertyType?: SortOrderInput | SortOrder
     propertyId?: SortOrderInput | SortOrder
+    link?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -15713,9 +15713,9 @@ export namespace Prisma {
     name?: StringFilter<"Application"> | string
     phone?: StringFilter<"Application"> | string
     status?: EnumApplicationStatusFilter<"Application"> | $Enums.ApplicationStatus
-    comment?: StringNullableFilter<"Application"> | string | null
     propertyType?: StringNullableFilter<"Application"> | string | null
     propertyId?: IntNullableFilter<"Application"> | number | null
+    link?: StringFilter<"Application"> | string
     createdAt?: DateTimeFilter<"Application"> | Date | string
     updatedAt?: DateTimeFilter<"Application"> | Date | string
   }, "id">
@@ -15725,9 +15725,9 @@ export namespace Prisma {
     name?: SortOrder
     phone?: SortOrder
     status?: SortOrder
-    comment?: SortOrderInput | SortOrder
     propertyType?: SortOrderInput | SortOrder
     propertyId?: SortOrderInput | SortOrder
+    link?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: ApplicationCountOrderByAggregateInput
@@ -15745,9 +15745,9 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Application"> | string
     phone?: StringWithAggregatesFilter<"Application"> | string
     status?: EnumApplicationStatusWithAggregatesFilter<"Application"> | $Enums.ApplicationStatus
-    comment?: StringNullableWithAggregatesFilter<"Application"> | string | null
     propertyType?: StringNullableWithAggregatesFilter<"Application"> | string | null
     propertyId?: IntNullableWithAggregatesFilter<"Application"> | number | null
+    link?: StringWithAggregatesFilter<"Application"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Application"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Application"> | Date | string
   }
@@ -16665,9 +16665,9 @@ export namespace Prisma {
     name: string
     phone: string
     status?: $Enums.ApplicationStatus
-    comment?: string | null
     propertyType?: string | null
     propertyId?: number | null
+    link: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -16677,9 +16677,9 @@ export namespace Prisma {
     name: string
     phone: string
     status?: $Enums.ApplicationStatus
-    comment?: string | null
     propertyType?: string | null
     propertyId?: number | null
+    link: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -16688,9 +16688,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     status?: EnumApplicationStatusFieldUpdateOperationsInput | $Enums.ApplicationStatus
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
     propertyType?: NullableStringFieldUpdateOperationsInput | string | null
     propertyId?: NullableIntFieldUpdateOperationsInput | number | null
+    link?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16700,9 +16700,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     status?: EnumApplicationStatusFieldUpdateOperationsInput | $Enums.ApplicationStatus
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
     propertyType?: NullableStringFieldUpdateOperationsInput | string | null
     propertyId?: NullableIntFieldUpdateOperationsInput | number | null
+    link?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16712,9 +16712,9 @@ export namespace Prisma {
     name: string
     phone: string
     status?: $Enums.ApplicationStatus
-    comment?: string | null
     propertyType?: string | null
     propertyId?: number | null
+    link: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -16723,9 +16723,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     status?: EnumApplicationStatusFieldUpdateOperationsInput | $Enums.ApplicationStatus
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
     propertyType?: NullableStringFieldUpdateOperationsInput | string | null
     propertyId?: NullableIntFieldUpdateOperationsInput | number | null
+    link?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -16735,9 +16735,9 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     status?: EnumApplicationStatusFieldUpdateOperationsInput | $Enums.ApplicationStatus
-    comment?: NullableStringFieldUpdateOperationsInput | string | null
     propertyType?: NullableStringFieldUpdateOperationsInput | string | null
     propertyId?: NullableIntFieldUpdateOperationsInput | number | null
+    link?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -17846,9 +17846,9 @@ export namespace Prisma {
     name?: SortOrder
     phone?: SortOrder
     status?: SortOrder
-    comment?: SortOrder
     propertyType?: SortOrder
     propertyId?: SortOrder
+    link?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -17863,9 +17863,9 @@ export namespace Prisma {
     name?: SortOrder
     phone?: SortOrder
     status?: SortOrder
-    comment?: SortOrder
     propertyType?: SortOrder
     propertyId?: SortOrder
+    link?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -17875,9 +17875,9 @@ export namespace Prisma {
     name?: SortOrder
     phone?: SortOrder
     status?: SortOrder
-    comment?: SortOrder
     propertyType?: SortOrder
     propertyId?: SortOrder
+    link?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
