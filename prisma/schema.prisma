@@ -1,0 +1,313 @@
+generator client {
+  provider = "prisma-client-js"
+  output = "./__generated__"
+}
+
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URI")
+}
+
+
+
+//
+// ENUM — неизменяющиеся типы
+//
+
+enum ApplicationStatus {
+  NEW        // новая
+  PROCESSING // в обработке
+  COMPLETED  // завершена
+  CANCELLED  // отменена
+}
+
+enum BuildingClass {
+  ECONOMY   // эконом
+  COMFORT   // комфорт
+  BUSINESS  // бизнес
+  PREMIUM   // премиум
+  ELITE     // элит
+}
+
+//
+// TABLES
+//
+
+// -----------------------
+// Realtor (сотрудники / риэлторы)
+// -----------------------
+model Realtor {
+  id          Int       @id @default(autoincrement())
+  fullName    String
+  phone       String?
+  email       String?
+  avatarUrl   String?
+  position    String?   // Например "Риэлтор по новостройкам"
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+// -----------------------
+// Application (заявки)
+// -----------------------
+model Application {
+  id          Int               @id @default(autoincrement())
+  name        String
+  phone       String
+  status      ApplicationStatus @default(NEW)
+  comment     String?           // дополнительный комментарий от клиента
+  propertyType String?          // тип объекта (новостройка, аренда и т.д.)
+  propertyId  Int?              // ID объекта если привязан
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+}
+
+// -----------------------
+// Image (универсальная таблица для всех изображений)
+// -----------------------
+model Image {
+  id          Int       @id @default(autoincrement())
+  url         String
+  
+  // Связи с разными типами недвижимости (только одно поле должно быть заполнено)
+  newBuildingComplexId      Int?
+  newBuildingComplex        NewBuildingComplex?   @relation(fields: [newBuildingComplexId], references: [id], onDelete: Cascade)
+  
+  newBuildingApartmentId    Int?
+  newBuildingApartment      NewBuildingApartment? @relation(fields: [newBuildingApartmentId], references: [id], onDelete: Cascade)
+  
+  readyApartmentId          Int?
+  readyApartment            ReadyApartment?       @relation(fields: [readyApartmentId], references: [id], onDelete: Cascade)
+  
+  rentalApartmentId         Int?
+  rentalApartment           RentalApartment?      @relation(fields: [rentalApartmentId], references: [id], onDelete: Cascade)
+  
+  countryPropertyId         Int?
+  countryProperty           CountryProperty?      @relation(fields: [countryPropertyId], references: [id], onDelete: Cascade)
+  
+  commercialPropertyId      Int?
+  commercialProperty        CommercialProperty?   @relation(fields: [commercialPropertyId], references: [id], onDelete: Cascade)
+  
+  createdAt   DateTime  @default(now())
+}
+
+// ==============================================
+// НОВОСТРОЙКИ
+// ==============================================
+
+// -----------------------
+// NewBuildingComplex (ЖК - жилой комплекс)
+// -----------------------
+model NewBuildingComplex {
+  id                Int       @id @default(autoincrement())
+  name              String    // название комплекса
+  address           String
+  district          String?
+  metro             String?
+  metroDistance     Int?      // расстояние до метро в минутах
+  
+  developer         String    // застройщик
+  priceFrom         Int       // от какой суммы квартиры
+  areaFrom          Int?      // площадь от (м²)
+  buildingClass     BuildingClass // класс жилья
+  
+  floors            Int?      // этажность
+  totalApartments   Int?      // квартир всего
+  availableApartments Int?    // квартир в продаже
+  
+  completionDate    DateTime? // срок сдачи
+  height            Int?      // высота небоскрёба (м)
+  hasParking        Boolean   @default(false) // наличие подземной парковки
+  
+  description       String?
+  
+  // Фото комплекса
+  images            Image[]
+  
+  // Квартиры в этом комплексе
+  apartments        NewBuildingApartment[]
+  
+  // Места поблизости
+  nearbyPlaces      NearbyPlace[]
+  
+  // Отзывы
+  reviews           Review[]
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}
+
+// -----------------------
+// NewBuildingApartment (квартира в новостройке)
+// -----------------------
+model NewBuildingApartment {
+  id          Int                  @id @default(autoincrement())
+  complexId   Int
+  complex     NewBuildingComplex   @relation(fields: [complexId], references: [id], onDelete: Cascade)
+  
+  bedrooms    Int                  // количество спален (студия = 0)
+  area        Int                  // метраж (м²)
+  price       Int                  // цена
+  pricePerM2  Int                  // цена за м²
+  floor       Int                  // этаж
+  
+  // Фото планировки
+  images      Image[]
+  
+  createdAt   DateTime             @default(now())
+  updatedAt   DateTime             @updatedAt
+}
+
+// -----------------------
+// NearbyPlace (места поблизости)
+// -----------------------
+model NearbyPlace {
+  id          Int                  @id @default(autoincrement())
+  complexId   Int
+  complex     NewBuildingComplex   @relation(fields: [complexId], references: [id], onDelete: Cascade)
+  
+  name        String               // название места
+  category    String               // категория (школа, парк, торговый центр и т.д.)
+  distance    Int?                 // расстояние в метрах
+  icon        String?              // иконка или тип
+  
+  createdAt   DateTime             @default(now())
+}
+
+// -----------------------
+// Review (отзывы к комплексам)
+// -----------------------
+model Review {
+  id          Int                  @id @default(autoincrement())
+  complexId   Int
+  complex     NewBuildingComplex   @relation(fields: [complexId], references: [id], onDelete: Cascade)
+  
+  authorName  String?
+  rating      Int                  // 1–5
+  comment     String?
+  createdAt   DateTime             @default(now())
+}
+
+// ==============================================
+// ГОТОВЫЕ КВАРТИРЫ
+// ==============================================
+
+// -----------------------
+// ReadyApartment (готовые квартиры)
+// -----------------------
+model ReadyApartment {
+  id              Int       @id @default(autoincrement())
+  title           String    // название
+  complexName     String?   // название комплекса (если это комплекс)
+  address         String
+  
+  area            Int       // метраж (м²)
+  price           Int       // цена
+  pricePerM2      Int       // цена за м²
+  bedrooms        Int       // количество спален (студия = 0)
+  floor           Int       // этаж
+  totalFloors     Int       // всего этажей в здании
+  
+  metro           String?   // ближайшее метро (опционально)
+  metroDistance   Int?      // расстояние до метро в минутах
+  
+  description     String?   // описание
+  
+  // Фото квартиры
+  images          Image[]
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+// ==============================================
+// АРЕНДА КВАРТИР
+// ==============================================
+
+// -----------------------
+// RentalApartment (аренда квартир)
+// -----------------------
+model RentalApartment {
+  id              Int       @id @default(autoincrement())
+  title           String    // название
+  address         String    // адрес
+  
+  area            Int       // метраж (м²)
+  pricePerMonth   Int       // цена аренды в месяц
+  bedrooms        Int       // количество спален (студия = 0)
+  floor           Int       // этаж
+  totalFloors     Int       // всего этажей в доме
+  
+  metro           String?   // ближайшее метро (опционально)
+  metroDistance   Int?      // расстояние до метро в минутах
+  
+  description     String?   // описание
+  
+  // Фото квартиры
+  images          Image[]
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+// ==============================================
+// ЗАГОРОДНАЯ НЕДВИЖИМОСТЬ
+// ==============================================
+
+// -----------------------
+// CountryProperty (загородная недвижимость)
+// -----------------------
+model CountryProperty {
+  id              Int       @id @default(autoincrement())
+  title           String    // название
+  address         String    // адрес
+  
+  metro           String?   // ближайшее метро
+  metroDistance   Int?      // расстояние до метро в минутах
+  
+  price           Int       // цена
+  landArea        Int       // количество соток
+  bedrooms        Int       // количество спален
+  totalFloors     Int       // всего этажей
+  pricePerM2      Int       // цена за м²
+  
+  description     String?   // описание
+  
+  // Фото недвижимости
+  images          Image[]
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+// ==============================================
+// КОММЕРЧЕСКАЯ НЕДВИЖИМОСТЬ
+// ==============================================
+
+// -----------------------
+// CommercialProperty (коммерческая недвижимость)
+// -----------------------
+model CommercialProperty {
+  id              Int       @id @default(autoincrement())
+  title           String    // название
+  address         String    // адрес
+  
+  price           Int       // цена
+  pricePerM2      Int       // цена за м²
+  area            Int       // метраж (м²)
+  
+  hasFinishing    Boolean   @default(false) // отделка (true/false)
+  purpose         String?   // назначение (опционально)
+  
+  metro           String?   // метро по близости (опционально)
+  metroDistance   Int?      // расстояние до метро в минутах
+  
+  description     String?   // описание
+  
+  // Фото недвижимости
+  images          Image[]
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
