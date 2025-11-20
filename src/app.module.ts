@@ -6,12 +6,13 @@ import { ReadyApartmentModule } from './ready-apartment/ready-apartment.module';
 import { NewBuildingApartmentModule } from './new-building-apartment/new-building-apartment.module';
 import { RentalApartmetsModule } from './rental-apartmets/rental-apartmets.module';
 import { CountryPropertyModule } from './country-property/country-property.module';
+import { CommercialPropertyModule } from './commercial-property/commercial-property.module';
 
 
 @Module({
   imports: [ConfigModule.forRoot({
     isGlobal: true
-  }), PrismaModule, NewBuildingComplexModule, ReadyApartmentModule, NewBuildingApartmentModule, RentalApartmetsModule, CountryPropertyModule],
+  }), PrismaModule, NewBuildingComplexModule, ReadyApartmentModule, NewBuildingApartmentModule, RentalApartmetsModule, CountryPropertyModule, CommercialPropertyModule],
   controllers: [],
   providers: [
   ],
