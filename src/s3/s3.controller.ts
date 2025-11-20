@@ -2,6 +2,7 @@ import { BadRequestException, Body, Controller, Delete, Get, Param, ParseIntPipe
 import { S3Service } from './s3.service';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { UploadImagesDto } from './dto/upload-images.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 type OwnerType =
   | 'newBuildingComplex'
@@ -10,6 +11,8 @@ type OwnerType =
   | 'rentalApartment'
   | 'countryProperty'
   | 'commercialProperty';
+
+@ApiTags('S3 storage')
 
 @Controller('s3')
 export class S3Controller {
@@ -37,7 +40,6 @@ export class S3Controller {
     @UploadedFiles() files: Express.Multer.File[],
     @Body() dto: UploadImagesDto,
   ) {
-    // Валидация DTO (можно добавить class-validator, если хочешь)
     if (!dto.ownerType || !dto.ownerId) {
       throw new BadRequestException('ownerType и ownerId обязательны');
     }
@@ -45,9 +47,7 @@ export class S3Controller {
     return this.s3Service.uploadMultiple(files, dto);
   }
 
-  /**
-   * Получить все изображения конкретного объекта
-   */
+
   @Get('owner/:ownerType/:ownerId')
   async findByOwner(
     @Param('ownerType') ownerType: OwnerType,
@@ -56,9 +56,7 @@ export class S3Controller {
     return this.s3Service.findByOwner(ownerType, ownerId);
   }
 
-  /**
-   * Удалить изображение по ID
-   */
+  
   @Delete(':id')
   async remove(@Param('id', ParseIntPipe) id: number) {
     return this.s3Service.remove(id);
