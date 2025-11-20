@@ -3,12 +3,15 @@ import { ConfigModule } from '@nestjs/config';
 import { PrismaModule } from './prisma/prisma.module';
 import { NewBuildingComplexModule } from './new-building-complex/new-building-complex.module';
 import { ReadyApartmentModule } from './ready-apartment/ready-apartment.module';
+import { NewBuildingApartmentModule } from './new-building-apartment/new-building-apartment.module';
+import { RentalApartmetsModule } from './rental-apartmets/rental-apartmets.module';
+import { CountryPropertyModule } from './country-property/country-property.module';
 
 
 @Module({
   imports: [ConfigModule.forRoot({
     isGlobal: true
-  }), PrismaModule, NewBuildingComplexModule, ReadyApartmentModule],
+  }), PrismaModule, NewBuildingComplexModule, ReadyApartmentModule, NewBuildingApartmentModule, RentalApartmetsModule, CountryPropertyModule],
   controllers: [],
   providers: [
   ],

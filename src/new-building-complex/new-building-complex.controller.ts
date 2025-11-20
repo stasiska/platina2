@@ -1,19 +1,25 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Query } from '@nestjs/common';
 import { NewBuildingComplexService } from './new-building-complex.service';
 import { CreateNewBuildingComplexDto } from './dto/create-new-building-complex.dto';
 import { UpdateNewBuildingComplexDto } from './dto/update-new-building-complex.dto';
+import { PropertyPaginationDto } from 'src/common/dto/property-pagination.dto';
 
 @Controller('new-building-complexes')
 export class NewBuildingComplexController {
   constructor(private readonly service: NewBuildingComplexService) {}
-@Post()
+  @Post()
   create(@Body() dto: CreateNewBuildingComplexDto) {
     return this.service.create(dto);
   }
 
   @Get()
-  findAll() {
-    return this.service.findAll();
+  findAll(@Query() query: PropertyPaginationDto) {
+    return this.service.findAll(query);
+  }
+
+  @Get('search')
+  search(@Query() query: PropertyPaginationDto) {
+    return this.service.search(query);
   }
 
   @Get(':id')
@@ -33,4 +39,5 @@ export class NewBuildingComplexController {
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.service.remove(id);
   }
+
 }
