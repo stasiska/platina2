@@ -1,0 +1,115 @@
+// New build complex
+{
+  "name": "ЖК «Солнечные Вершины»",
+  "address": "Москва, ул. Лётчика Бабушкина, д. 32",
+  "district": "Бабушкинский",
+  "metro": "Бабушкинская",
+  "metroDistance": 7,
+  "developer": "ПИК",
+  "priceFrom": 12500000,
+  "areaFrom": 28,
+  "buildingClass": "COMFORT",
+  "floors": 25,
+  "totalApartments": 840,
+  "availableApartments": 184,
+  "completionDate": "2027-06-30T00:00:00.000Z",
+  "height": 85,
+  "hasParking": true,
+  "description": "Современный жилой комплекс комфорт-класса рядом с метро и парком Лосиный остров."
+}
+
+/// ready totalApartments
+{
+  "title": "2-комнатная квартира в ЖК Москва А101",
+  "complexName": "Москва А101",
+  "address": "Москва, ул. Липовый парк, д. 7",
+  "area": 62,
+  "price": 18500000,
+  "pricePerM2": 298387,
+  "bedrooms": 2,
+  "floor": 12,
+  "totalFloors": 17,
+  "metro": "Прокшино",
+  "metroDistance": 10,
+  "description": "Светлая евродвушка с ремонтом от застройщика, вид на парк."
+}
+
+// new Building apartments
+
+{
+  "complexId": 3,
+  "bedrooms": 2,
+  "area": 28,
+  "price": 7850000,
+  "pricePerM2": 280357,
+  "floor": 12
+}
+
+// rentail-apartments
+
+{
+  "title": "Светлая студия у метро",
+  "address": "Москва, ул. Профсоюзная, д. 56",
+  "area": 32,
+  "pricePerMonth": 45000,
+  "bedrooms": 0,
+  "floor": 8,
+  "totalFloors": 17,
+  "metro": "Новые Черёмушки",
+  "metroDistance": 3,
+  "description": "С ремонтом, мебель, техника. Без животных."
+}
+
+// country-properties
+
+{
+  "title": "Коттедж в Истринском районе",
+  "address": "МО, Истринский р-н, д. Ламишино",
+  "price": 48500000,
+  "landArea": 15,
+  "bedrooms": 5,
+  "totalFloors": 2,
+  "pricePerM2": 185000,
+  "metro": "Мякинино",
+  "metroDistance": 45,
+  "description": "Кирпичный дом 260 м² с баней и гаражом. Участок 15 соток ИЖС. Все коммуникации."
+}
+
+//commectial-properties
+
+{
+    "id": 2,
+    "title": "Офис 120 м²2 в БЦ класс А",
+    "address": "Москва, Ленинградский пр-т, д. 37",
+    "price": 48500000,
+    "pricePerM2": 404167,
+    "area": 120,
+    "hasFinishing": true,
+    "purpose": "офис",
+    "metro": "Аэропорт",
+    "metroDistance": 5,
+    "description": "Светлый офис с ремонтом, 3 кабинета, своя мокая точка.",
+    "createdAt": "2025-11-24T15:38:58.759Z",
+    "updatedAt": "2025-11-24T15:38:58.759Z",
+    "images": []
+}
+
+// s3
+
+upload
+
+// application
+
+{
+  "name": "Алексей",
+  "phone": "+79991234567",
+  "link": "https://platina.su/flat/42",
+  "propertyType": "newBuildingApartment",
+  "propertyId": 42
+}
+
+// auth
+{
+    "login": "admin@gmail.com",
+    "password": "platina2025"
+}

@@ -1,8 +1,46 @@
 version: '3.8'
 
 services:
+  app:
+    build: .
+    ports:
+      - "55013:55013"
+    environment:
+      # === Основные ===
+      NODE_ENV: production
+      PORT: 55013
+
+      # === База данных ===
+      DATABASE_URI: postgresql://root:1234@postgres:5432/platina
+
+      # === Админка ===
+      ADMIN_LOGIN: admin@gmail.com
+      ADMIN_PASSWORD: platina2025
+      JWT_SECRET: sudofidsjhdosfbdfjkldsfajkhfddfdsf
+      JWT_EXPIRES: 2d
+
+      # === Telegram ===
+      TELEGRAM_BOT_TOKEN: 8247126824:AAEHNOLPJ3jfsBKOqy6TqLftlXOdP0e6wJ0
+      TELEGRAM_CHAT_ID: -1003311311312
+
+      # === S3 (SelStorage) ===
+      S3_URL: https://9c9a241d-11ea-4f71-8a89-7a1d2f462630.selstorage.ru/
+      S3_ENDPOINT: s3.ru-7.storage.selcloud.ru
+      S3_PORT: 443
+      S3_REGION: ru-7
+      S3_BACKETNAME: platina
+      S3_ACCESSKEY: 284b1fcebc904017ba6c09cb50631180
+      S3_SECRET_KEY: 47a231693b0b4759bfb0aaad25cd1544
+
+      COOKIES_SECRET: kdgshdkjfhdskjhdsf
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: sh -c "npx prisma db push --accept-data-loss && node dist/main.js"
+
+
   postgres:
-    image: postgres:16
+    image: postgres:16-alpine
     container_name: platina_postgres
     restart: unless-stopped
     ports:
@@ -11,38 +49,33 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: 1234
       POSTGRES_DB: platina
-      PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U root"]
+      test: ["CMD-SHELL", "pg_isready -U root -d platina"]
       interval: 10s
       timeout: 5s
       retries: 5
-    networks:
-      - backend
 
   redis:
-    image: redis:7
-    container_name: redisService
+    image: redis:7-alpine
+    container_name: platina_redis
     restart: unless-stopped
-    command: ["redis-server", "--appendonly", "yes"]
     ports:
       - "6379:6379"
     volumes:
       - redis_data:/data
+    command: redis-server --appendonly yes
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s
       timeout: 5s
       retries: 5
-    networks:
-      - backend
 
 volumes:
   postgres_data:
   redis_data:
 
 networks:
-  backend:
+  default:
     driver: bridge
