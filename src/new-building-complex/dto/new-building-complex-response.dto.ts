@@ -28,6 +28,8 @@ export class NewBuildingComplexResponseDto {
   @ApiProperty({ example: 'ЮАО', description: 'Район', nullable: true })
   district: string | null;
 
+  city: string;
+  
   @ApiProperty({ example: 'Коломенская', description: 'Ближайшее метро', nullable: true })
   metro: string | null;
 

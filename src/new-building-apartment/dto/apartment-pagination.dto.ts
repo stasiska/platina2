@@ -8,6 +8,7 @@ import {
   IsNumberString,
   Min,
   IsInt,
+  IsString,
 } from 'class-validator';
 
 export class ApartmentPaginationDto {
@@ -75,6 +76,10 @@ export class ApartmentPaginationDto {
   @Min(0)
   areaMax?: number;
 
+  @IsOptional()
+  @IsString()
+  city?: string;
+    
   @ApiProperty({ default: 0, description: 'Минимальный этаж'}, )
   @IsOptional()
   @Type(() => Number)

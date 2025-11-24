@@ -62,4 +62,8 @@ export class CommercialPaginationDto {
   @IsOptional()
   @IsString()
   metro?: string;
+
+  @IsOptional()
+  @IsString()
+  city?: string;
 }

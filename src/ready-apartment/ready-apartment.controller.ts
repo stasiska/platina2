@@ -29,7 +29,7 @@ import { AdminGuard } from 'src/auth/guard/admin.guard';
 
 @ApiTags('ready-apartments')
 @ApiBearerAuth()
-@Controller('api/ready-apartments')
+@Controller('ready-apartments')
 export class ReadyApartmentController {
   constructor(private readonly service: ReadyApartmentService) {}
 

@@ -85,4 +85,10 @@ export class PropertyPaginationDto {
   @Type(() => Number)
   @Min(0)
   areaMax?: number;
+
+  
+  @IsOptional()
+  @IsString()
+  city?: string;
+    
 }

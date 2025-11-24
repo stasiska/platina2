@@ -58,6 +58,9 @@ export class RentalApartmentResponseDto {
   @ApiProperty({ example: '2025-11-20T17:00:00.000Z', description: 'Дата создания' })
   createdAt: string;
 
+  city: string;
+    
+
   @ApiProperty({ example: '2025-11-20T17:30:00.000Z', description: 'Дата обновления' })
   updatedAt: string;
 }

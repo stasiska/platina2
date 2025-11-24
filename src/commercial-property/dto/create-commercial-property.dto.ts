@@ -10,6 +10,9 @@ export class CreateCommercialPropertyDto {
   @IsString()
   address: string;
 
+  @IsString()
+  city: string;
+  
   @ApiProperty({ description: 'Полная цена', example: 48500000 })
   @IsInt()
   @IsPositive()

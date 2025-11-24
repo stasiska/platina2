@@ -36,6 +36,11 @@ export class CreateRentalApartmentDto {
   @Min(0)
   metroDistance?: number;
 
+
+  @IsString()
+  city: string;
+    
+
   @IsOptional()
   @IsString()
   description?: string;

@@ -54,7 +54,7 @@ export class CreateReadyApartmentDto {
 
   @ApiProperty({ example: 'ПИК', description: 'Застройщик' })
   @IsString()
-  developer: string;
+  developer?: string;
   
   @ApiProperty({ example: 'Деловой центр', description: 'Ближайшее метро', nullable: true })
   @IsOptional()
@@ -66,6 +66,10 @@ export class CreateReadyApartmentDto {
   @IsInt()
   @Min(0)
   metroDistance?: number;
+
+  @IsOptional()
+  @IsString()
+  city: string;    
 
   @ApiProperty({ example: 'Возможна сдача', description: 'Описание' })
   @IsOptional()
