@@ -9,6 +9,7 @@ import {
   Patch,
   Delete,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import { CreateCommercialPropertyDto } from './dto/create-commercial-property.dto';
 import { UpdateCommercialPropertyDto } from './dto/update-commercial-property.dto';
@@ -26,13 +27,14 @@ import { PaginatedResponseDto } from 'src/common/dto/paginated-response.dto';
 import { CommercialPropertyService } from './commercial-property.service';
 import { CommercialPaginationDto } from './dto/commercial-pagination.dto';
 import { CommercialPaginatedResponseDto } from './dto/commercial-paginated-response.dto';
+import { AdminGuard } from 'src/auth/guard/admin.guard';
 
 @ApiTags('commercial-properties')
 @ApiBearerAuth()
 @Controller('commercial-properties')
 export class CommercialPropertyController {
   constructor(private readonly service: CommercialPropertyService) {}
-
+  @UseGuards(AdminGuard)
   @Post()
   @ApiOperation({ summary: 'Создать коммерческий объект' })
   @ApiBody({ type: CreateCommercialPropertyDto })
@@ -87,6 +89,7 @@ export class CommercialPropertyController {
     return this.service.findOne(id);
   }
 
+  @UseGuards(AdminGuard)
   @Patch(':id')
   @ApiOperation({ summary: 'Обновить коммерческий объект' })
   @ApiParam({ name: 'id', example: 42 })
@@ -104,6 +107,7 @@ export class CommercialPropertyController {
     return this.service.update(id, dto);
   }
 
+  @UseGuards(AdminGuard)
   @Delete(':id')
   @ApiOperation({ summary: 'Удалить коммерческий объект' })
   @ApiParam({ name: 'id', example: 42 })

@@ -9,6 +9,7 @@ import {
   Patch,
   Delete,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import { NewBuildingComplexService } from './new-building-complex.service';
 import { CreateNewBuildingComplexDto } from './dto/create-new-building-complex.dto';
@@ -24,6 +25,7 @@ import {
 } from '@nestjs/swagger';
 import { NewBuildingComplexResponseDto } from './dto/new-building-complex-response.dto';
 import { NewBuildingComplexPaginatedResponseDto } from './dto/new-building-complex-paginated-response.dto';
+import { AdminGuard } from 'src/auth/guard/admin.guard';
 
 @ApiTags('new-building-complexes')
 @ApiBearerAuth()
@@ -31,6 +33,7 @@ import { NewBuildingComplexPaginatedResponseDto } from './dto/new-building-compl
 export class NewBuildingComplexController {
   constructor(private readonly service: NewBuildingComplexService) {}
 
+  @UseGuards(AdminGuard)
   @Post()
   @ApiOperation({ summary: 'Создать жилой комплекс (новостройку)' })
   @ApiBody({ type: CreateNewBuildingComplexDto })
@@ -78,6 +81,7 @@ export class NewBuildingComplexController {
     return this.service.findOne(id);
   }
 
+  @UseGuards(AdminGuard)
   @Patch(':id')
   @ApiOperation({ summary: 'Обновить ЖК' })
   @ApiParam({ name: 'id', example: 3 })
@@ -87,6 +91,8 @@ export class NewBuildingComplexController {
     description: 'ЖК обновлён',
     type: NewBuildingComplexResponseDto,
   })
+  
+  @UseGuards(AdminGuard)
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() dto: UpdateNewBuildingComplexDto,
@@ -94,6 +100,7 @@ export class NewBuildingComplexController {
     return this.service.update(id, dto);
   }
 
+  @UseGuards(AdminGuard)
   @Delete(':id')
   @ApiOperation({ summary: 'Удалить ЖК' })
   @ApiParam({ name: 'id', example: 3 })

@@ -1,8 +1,9 @@
-import { BadRequestException, Body, Controller, Delete, Get, Param, ParseIntPipe, Post, UploadedFiles, UseInterceptors } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Delete, Get, Param, ParseIntPipe, Post, UploadedFiles, UseGuards, UseInterceptors } from '@nestjs/common';
 import { S3Service } from './s3.service';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { UploadImagesDto } from './dto/upload-images.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { AdminGuard } from 'src/auth/guard/admin.guard';
 
 type OwnerType =
   | 'newBuildingComplex'
@@ -18,6 +19,7 @@ type OwnerType =
 export class S3Controller {
   constructor(private readonly s3Service: S3Service) {}
 
+@UseGuards(AdminGuard)
 @Post('upload')
   @UseInterceptors(
     FilesInterceptor('files', 20, {

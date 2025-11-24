@@ -9,6 +9,7 @@ import {
   Patch,
   Delete,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import { CreateRentalApartmentDto } from './dto/create-rental-apartment.dto';
 import { UpdateRentalApartmentDto } from './dto/update-rental-apartment.dto';
@@ -24,6 +25,7 @@ import {
 import { RentalApartmentResponseDto } from './dto/rental-apartment-response.dto';
 import { RentalApartmentPaginatedResponseDto } from './dto/rental-apartment-paginated-response.dto';
 import { RentalApartmetsService } from './rental-apartmets.service';
+import { AdminGuard } from 'src/auth/guard/admin.guard';
 
 @ApiTags('rental-apartments')
 @ApiBearerAuth()
@@ -31,6 +33,7 @@ import { RentalApartmetsService } from './rental-apartmets.service';
 export class RentalApartmetsController {
   constructor(private readonly service: RentalApartmetsService) {}
 
+  @UseGuards(AdminGuard)
   @Post()
   @ApiOperation({ summary: 'Создать объявление об аренде квартиры' })
   @ApiBody({ type: CreateRentalApartmentDto })
@@ -78,6 +81,7 @@ export class RentalApartmetsController {
     return this.service.findOne(id);
   }
 
+  @UseGuards(AdminGuard)
   @Patch(':id')
   @ApiOperation({ summary: 'Обновить объявление' })
   @ApiParam({ name: 'id', example: 89 })
@@ -94,6 +98,7 @@ export class RentalApartmetsController {
     return this.service.update(id, dto);
   }
 
+  @UseGuards(AdminGuard)
   @Delete(':id')
   @ApiOperation({ summary: 'Удалить объявление' })
   @ApiParam({ name: 'id', example: 89 })
