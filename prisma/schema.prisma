@@ -208,7 +208,7 @@ model ReadyApartment {
   metroDistance   Int?      // расстояние до метро в минутах
   
   description     String?   // описание
-  
+  developer     String? 
   // Фото квартиры
   images          Image[]
   

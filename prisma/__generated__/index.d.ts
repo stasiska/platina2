@@ -10266,6 +10266,7 @@ export namespace Prisma {
     metro: string | null
     metroDistance: number | null
     description: string | null
+    developer: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -10284,6 +10285,7 @@ export namespace Prisma {
     metro: string | null
     metroDistance: number | null
     description: string | null
+    developer: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -10302,6 +10304,7 @@ export namespace Prisma {
     metro: number
     metroDistance: number
     description: number
+    developer: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -10344,6 +10347,7 @@ export namespace Prisma {
     metro?: true
     metroDistance?: true
     description?: true
+    developer?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -10362,6 +10366,7 @@ export namespace Prisma {
     metro?: true
     metroDistance?: true
     description?: true
+    developer?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -10380,6 +10385,7 @@ export namespace Prisma {
     metro?: true
     metroDistance?: true
     description?: true
+    developer?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -10485,6 +10491,7 @@ export namespace Prisma {
     metro: string | null
     metroDistance: number | null
     description: string | null
+    developer: string | null
     createdAt: Date
     updatedAt: Date
     _count: ReadyApartmentCountAggregateOutputType | null
@@ -10522,6 +10529,7 @@ export namespace Prisma {
     metro?: boolean
     metroDistance?: boolean
     description?: boolean
+    developer?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     images?: boolean | ReadyApartment$imagesArgs<ExtArgs>
@@ -10542,6 +10550,7 @@ export namespace Prisma {
     metro?: boolean
     metroDistance?: boolean
     description?: boolean
+    developer?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["readyApartment"]>
@@ -10560,6 +10569,7 @@ export namespace Prisma {
     metro?: boolean
     metroDistance?: boolean
     description?: boolean
+    developer?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["readyApartment"]>
@@ -10578,11 +10588,12 @@ export namespace Prisma {
     metro?: boolean
     metroDistance?: boolean
     description?: boolean
+    developer?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type ReadyApartmentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "complexName" | "address" | "area" | "price" | "pricePerM2" | "bedrooms" | "floor" | "totalFloors" | "metro" | "metroDistance" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["readyApartment"]>
+  export type ReadyApartmentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "complexName" | "address" | "area" | "price" | "pricePerM2" | "bedrooms" | "floor" | "totalFloors" | "metro" | "metroDistance" | "description" | "developer" | "createdAt" | "updatedAt", ExtArgs["result"]["readyApartment"]>
   export type ReadyApartmentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     images?: boolean | ReadyApartment$imagesArgs<ExtArgs>
     _count?: boolean | ReadyApartmentCountOutputTypeDefaultArgs<ExtArgs>
@@ -10609,6 +10620,7 @@ export namespace Prisma {
       metro: string | null
       metroDistance: number | null
       description: string | null
+      developer: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["readyApartment"]>
@@ -11048,6 +11060,7 @@ export namespace Prisma {
     readonly metro: FieldRef<"ReadyApartment", 'String'>
     readonly metroDistance: FieldRef<"ReadyApartment", 'Int'>
     readonly description: FieldRef<"ReadyApartment", 'String'>
+    readonly developer: FieldRef<"ReadyApartment", 'String'>
     readonly createdAt: FieldRef<"ReadyApartment", 'DateTime'>
     readonly updatedAt: FieldRef<"ReadyApartment", 'DateTime'>
   }
@@ -15304,6 +15317,7 @@ export namespace Prisma {
     metro: 'metro',
     metroDistance: 'metroDistance',
     description: 'description',
+    developer: 'developer',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -16077,6 +16091,7 @@ export namespace Prisma {
     metro?: StringNullableFilter<"ReadyApartment"> | string | null
     metroDistance?: IntNullableFilter<"ReadyApartment"> | number | null
     description?: StringNullableFilter<"ReadyApartment"> | string | null
+    developer?: StringNullableFilter<"ReadyApartment"> | string | null
     createdAt?: DateTimeFilter<"ReadyApartment"> | Date | string
     updatedAt?: DateTimeFilter<"ReadyApartment"> | Date | string
     images?: ImageListRelationFilter
@@ -16096,6 +16111,7 @@ export namespace Prisma {
     metro?: SortOrderInput | SortOrder
     metroDistance?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
+    developer?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     images?: ImageOrderByRelationAggregateInput
@@ -16118,6 +16134,7 @@ export namespace Prisma {
     metro?: StringNullableFilter<"ReadyApartment"> | string | null
     metroDistance?: IntNullableFilter<"ReadyApartment"> | number | null
     description?: StringNullableFilter<"ReadyApartment"> | string | null
+    developer?: StringNullableFilter<"ReadyApartment"> | string | null
     createdAt?: DateTimeFilter<"ReadyApartment"> | Date | string
     updatedAt?: DateTimeFilter<"ReadyApartment"> | Date | string
     images?: ImageListRelationFilter
@@ -16137,6 +16154,7 @@ export namespace Prisma {
     metro?: SortOrderInput | SortOrder
     metroDistance?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
+    developer?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: ReadyApartmentCountOrderByAggregateInput
@@ -16163,6 +16181,7 @@ export namespace Prisma {
     metro?: StringNullableWithAggregatesFilter<"ReadyApartment"> | string | null
     metroDistance?: IntNullableWithAggregatesFilter<"ReadyApartment"> | number | null
     description?: StringNullableWithAggregatesFilter<"ReadyApartment"> | string | null
+    developer?: StringNullableWithAggregatesFilter<"ReadyApartment"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"ReadyApartment"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"ReadyApartment"> | Date | string
   }
@@ -17067,6 +17086,7 @@ export namespace Prisma {
     metro?: string | null
     metroDistance?: number | null
     description?: string | null
+    developer?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     images?: ImageCreateNestedManyWithoutReadyApartmentInput
@@ -17086,6 +17106,7 @@ export namespace Prisma {
     metro?: string | null
     metroDistance?: number | null
     description?: string | null
+    developer?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     images?: ImageUncheckedCreateNestedManyWithoutReadyApartmentInput
@@ -17104,6 +17125,7 @@ export namespace Prisma {
     metro?: NullableStringFieldUpdateOperationsInput | string | null
     metroDistance?: NullableIntFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    developer?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     images?: ImageUpdateManyWithoutReadyApartmentNestedInput
@@ -17123,6 +17145,7 @@ export namespace Prisma {
     metro?: NullableStringFieldUpdateOperationsInput | string | null
     metroDistance?: NullableIntFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    developer?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     images?: ImageUncheckedUpdateManyWithoutReadyApartmentNestedInput
@@ -17142,6 +17165,7 @@ export namespace Prisma {
     metro?: string | null
     metroDistance?: number | null
     description?: string | null
+    developer?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -17159,6 +17183,7 @@ export namespace Prisma {
     metro?: NullableStringFieldUpdateOperationsInput | string | null
     metroDistance?: NullableIntFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    developer?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -17177,6 +17202,7 @@ export namespace Prisma {
     metro?: NullableStringFieldUpdateOperationsInput | string | null
     metroDistance?: NullableIntFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    developer?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -18184,6 +18210,7 @@ export namespace Prisma {
     metro?: SortOrder
     metroDistance?: SortOrder
     description?: SortOrder
+    developer?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -18213,6 +18240,7 @@ export namespace Prisma {
     metro?: SortOrder
     metroDistance?: SortOrder
     description?: SortOrder
+    developer?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -18231,6 +18259,7 @@ export namespace Prisma {
     metro?: SortOrder
     metroDistance?: SortOrder
     description?: SortOrder
+    developer?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -19278,6 +19307,7 @@ export namespace Prisma {
     metro?: string | null
     metroDistance?: number | null
     description?: string | null
+    developer?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -19296,6 +19326,7 @@ export namespace Prisma {
     metro?: string | null
     metroDistance?: number | null
     description?: string | null
+    developer?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -19529,6 +19560,7 @@ export namespace Prisma {
     metro?: NullableStringFieldUpdateOperationsInput | string | null
     metroDistance?: NullableIntFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    developer?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -19547,6 +19579,7 @@ export namespace Prisma {
     metro?: NullableStringFieldUpdateOperationsInput | string | null
     metroDistance?: NullableIntFieldUpdateOperationsInput | number | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    developer?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

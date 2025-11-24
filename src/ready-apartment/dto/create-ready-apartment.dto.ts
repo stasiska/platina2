@@ -54,7 +54,7 @@ export class CreateReadyApartmentDto {
 
   @ApiProperty({ example: 'ПИК', description: 'Застройщик' })
   @IsString()
-  developer: string;
+  developer?: string;
   
   @ApiProperty({ example: 'Деловой центр', description: 'Ближайшее метро', nullable: true })
   @IsOptional()

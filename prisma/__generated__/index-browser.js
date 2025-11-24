@@ -218,6 +218,7 @@ exports.Prisma.ReadyApartmentScalarFieldEnum = {
   metro: 'metro',
   metroDistance: 'metroDistance',
   description: 'description',
+  developer: 'developer',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
