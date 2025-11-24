@@ -4,6 +4,7 @@ import { UpdateCommercialPropertyDto } from './dto/update-commercial-property.dt
 import { PaginatedResponseDto } from 'src/common/dto/paginated-response.dto';
 import { CommercialPaginationDto } from './dto/commercial-pagination.dto';
 import { CreateCommercialPropertyDto } from './dto/create-commercial-property.dto';
+import { CommercialPropertyPaginationDto } from 'src/dto/base.dto';
 
 @Injectable()
 export class CommercialPropertyService {
@@ -16,7 +17,7 @@ export class CommercialPropertyService {
     });
   }
 
-  private async findManyWithPagination(dto: CommercialPaginationDto) {
+  private async findManyWithPagination(dto: CommercialPropertyPaginationDto) {
     const {
       skip,
       take,
@@ -29,6 +30,7 @@ export class CommercialPropertyService {
       hasFinishing,
       purpose,
       metro,
+      city
     } = dto;
 
     const where: any = {
@@ -36,7 +38,8 @@ export class CommercialPropertyService {
       ...(maxPrice && { price: { lte: +maxPrice } }),
       ...(areaMin && { area: { gte: areaMin } }),
       ...(areaMax && { area: { lte: areaMax } }),
-      ...(hasFinishing !== undefined && { hasFinishing: hasFinishing === 'true' }),
+      ...(city && { city: { contains: city, mode: 'insensitive' } }),
+      ...(hasFinishing !== undefined && { hasFinishing }),
       ...(purpose && { purpose: { contains: purpose, mode: 'insensitive' } }),
       ...(metro && { metro: { contains: metro, mode: 'insensitive' } }),
     };
@@ -55,11 +58,11 @@ export class CommercialPropertyService {
     return new PaginatedResponseDto(data, total, skip!, take!);
   }
 
-  async findAll(dto: CommercialPaginationDto) {
+  async findAll(dto: CommercialPropertyPaginationDto) {
     return this.findManyWithPagination(dto);
   }
 
-  async search(dto: CommercialPaginationDto) {
+  async search(dto: CommercialPropertyPaginationDto) {
     return this.findManyWithPagination(dto);
   }
 

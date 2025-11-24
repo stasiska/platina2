@@ -26,6 +26,7 @@ import {
 import { NewBuildingComplexResponseDto } from './dto/new-building-complex-response.dto';
 import { NewBuildingComplexPaginatedResponseDto } from './dto/new-building-complex-paginated-response.dto';
 import { AdminGuard } from 'src/auth/guard/admin.guard';
+import { NewBuildingComplexPaginationDto } from 'src/dto/base.dto';
 
 @ApiTags('new-building-complexes')
 @ApiBearerAuth()
@@ -52,7 +53,7 @@ export class NewBuildingComplexController {
     description: 'Список жилых комплексов',
     type: NewBuildingComplexPaginatedResponseDto,
   })
-  findAll(@Query() query: PropertyPaginationDto) {
+  findAll(@Query() query: NewBuildingComplexPaginationDto) {
     return this.service.findAll(query);
   }
 
@@ -63,7 +64,7 @@ export class NewBuildingComplexController {
     description: 'Результаты поиска',
     type: NewBuildingComplexPaginatedResponseDto,
   })
-  search(@Query() query: PropertyPaginationDto) {
+  search(@Query() query: NewBuildingComplexPaginationDto) {
     return this.service.search(query);
   }
 

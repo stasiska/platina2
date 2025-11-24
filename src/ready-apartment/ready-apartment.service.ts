@@ -5,7 +5,7 @@ import { CreateReadyApartmentDto } from './dto/create-ready-apartment.dto';
 import { PaginationQueryDto } from './dto/pagination-query.dto';
 import { PaginatedResponseDto } from './dto/paginated-response.dto';
 import { ReadyApartment } from 'prisma/__generated__';
-import { PropertyPaginationDto } from './dto/property-pagination.dto';
+import { ReadyApartmentPaginationDto } from 'src/dto/base.dto';
 
 @Injectable()
 export class ReadyApartmentService {
@@ -40,7 +40,7 @@ async findAll(
     return new PaginatedResponseDto(data, total, skip, take);
   }
 
-async findAllAndSearch(dto: PropertyPaginationDto) {
+async findAllAndSearch(dto: ReadyApartmentPaginationDto) {
   const {
     skip,
     take,
@@ -52,6 +52,7 @@ async findAllAndSearch(dto: PropertyPaginationDto) {
     bedrooms,
     areaMin,
     areaMax,
+    city,
   } = dto;
 
   const where: any = {
@@ -61,6 +62,7 @@ async findAllAndSearch(dto: PropertyPaginationDto) {
     ...(bedrooms !== undefined && { bedrooms }),
     ...(areaMin && { area: { gte: areaMin } }),
     ...(areaMax && { area: { lte: areaMax } }),
+    ...(city && { city: { contains: city, mode: 'insensitive' } }),
   };
 
   const [data, total] = await Promise.all([

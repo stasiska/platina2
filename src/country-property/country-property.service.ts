@@ -4,6 +4,7 @@ import { UpdateCountryPropertyDto } from './dto/update-country-property.dto';
 import { CountryPaginationDto } from './dto/country-pagination.dto';
 import { PaginatedResponseDto } from 'src/common/dto/paginated-response.dto';
 import { CreateCountryPropertyDto } from './dto/create-country-property.dto';
+import { CountryPropertyPaginationDto } from 'src/dto/base.dto';
 
 @Injectable()
 export class CountryPropertyService {
@@ -16,7 +17,7 @@ export class CountryPropertyService {
     });
   }
 
-  private async findManyWithPagination(dto: CountryPaginationDto) {
+  private async findManyWithPagination(dto: CountryPropertyPaginationDto) {
     const {
       skip,
       take,
@@ -28,6 +29,7 @@ export class CountryPropertyService {
       bedrooms,
       landAreaMin,
       landAreaMax,
+      city
     } = dto;
 
     const where: any = {
@@ -35,6 +37,7 @@ export class CountryPropertyService {
       ...(minPrice && { price: { gte: +minPrice } }),
       ...(maxPrice && { price: { lte: +maxPrice } }),
       ...(bedrooms !== undefined && { bedrooms }),
+      ...(city && { city: { contains: city, mode: 'insensitive' } }),
       ...(landAreaMin && { landArea: { gte: landAreaMin } }),
       ...(landAreaMax && { landArea: { lte: landAreaMax } }),
     };
@@ -53,11 +56,11 @@ export class CountryPropertyService {
     return new PaginatedResponseDto(data, total, skip!, take!);
   }
 
-  async findAll(dto: CountryPaginationDto) {
+  async findAll(dto: CountryPropertyPaginationDto) {
     return this.findManyWithPagination(dto);
   }
 
-  async search(dto: CountryPaginationDto) {
+  async search(dto: CountryPropertyPaginationDto) {
     return this.findManyWithPagination(dto);
   }
 
