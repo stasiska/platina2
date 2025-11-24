@@ -29,11 +29,10 @@ import { AdminGuard } from 'src/auth/guard/admin.guard';
 
 @ApiTags('new-building-complexes')
 @ApiBearerAuth()
-@Controller('api/new-building-complexes')
+@Controller('new-building-complexes')
 export class NewBuildingComplexController {
   constructor(private readonly service: NewBuildingComplexService) {}
 
-  @UseGuards(AdminGuard)
   @Post()
   @ApiOperation({ summary: 'Создать жилой комплекс (новостройку)' })
   @ApiBody({ type: CreateNewBuildingComplexDto })
