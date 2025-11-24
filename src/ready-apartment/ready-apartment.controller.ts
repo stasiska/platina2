@@ -9,6 +9,7 @@ import {
   Patch,
   Delete,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import { ReadyApartmentService } from './ready-apartment.service';
 import { CreateReadyApartmentDto } from './dto/create-ready-apartment.dto';
@@ -24,6 +25,7 @@ import {
 } from '@nestjs/swagger';
 import { ReadyApartmentResponseDto } from './dto/ready-apartment-response.dto';
 import { ReadyApartmentPaginatedResponseDto } from './dto/ready-apartment-paginated-response.dto';
+import { AdminGuard } from 'src/auth/guard/admin.guard';
 
 @ApiTags('ready-apartments')
 @ApiBearerAuth()
@@ -31,6 +33,7 @@ import { ReadyApartmentPaginatedResponseDto } from './dto/ready-apartment-pagina
 export class ReadyApartmentController {
   constructor(private readonly service: ReadyApartmentService) {}
 
+  @UseGuards(AdminGuard)
   @Post()
   @ApiOperation({ summary: 'Создать объект вторичного жилья' })
   @ApiBody({ type: CreateReadyApartmentDto })
@@ -39,6 +42,7 @@ export class ReadyApartmentController {
     description: 'Квартира успешно создана',
     type: ReadyApartmentResponseDto,
   })
+
   create(@Body() dto: CreateReadyApartmentDto) {
     return this.service.create(dto);
   }
@@ -78,6 +82,7 @@ export class ReadyApartmentController {
     return this.service.findOne(id);
   }
 
+  @UseGuards(AdminGuard)
   @Patch(':id')
   @ApiOperation({ summary: 'Обновить квартиру' })
   @ApiParam({ name: 'id', example: 156 })
@@ -94,6 +99,7 @@ export class ReadyApartmentController {
     return this.service.update(id, dto);
   }
 
+  @UseGuards(AdminGuard)
   @Delete(':id')
   @ApiOperation({ summary: 'Удалить квартиру' })
   @ApiParam({ name: 'id', example: 156 })

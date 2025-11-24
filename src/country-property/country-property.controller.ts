@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Query, UseGuards } from '@nestjs/common';
 import { CountryPropertyService } from './country-property.service';
 import { CreateCountryPropertyDto } from './dto/create-country-property.dto';
 import { CountryPaginationDto } from './dto/country-pagination.dto';
@@ -6,12 +6,14 @@ import { UpdateCountryPropertyDto } from './dto/update-country-property.dto';
 import { ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CountryPropertyResponseDto } from './dto/country-property-response.dto';
 import { CountryPaginatedResponseDto } from './dto/country-paginated-response.dto';
+import { AdminGuard } from 'src/auth/guard/admin.guard';
 
 @ApiTags('country-properties')
 @Controller('country-properties')
 export class CountryPropertyController {
   constructor(private readonly service: CountryPropertyService) {}
 
+  @UseGuards(AdminGuard)
   @Post()
   @ApiOperation({ summary: 'Создать загородный объект' })
   @ApiBody({ type: CreateCountryPropertyDto })
@@ -59,6 +61,7 @@ export class CountryPropertyController {
     return this.service.findOne(id);
   }
 
+  @UseGuards(AdminGuard)
   @Patch(':id')
   @ApiOperation({ summary: 'Обновить загородный объект' })
   @ApiParam({ name: 'id', example: 7 })
@@ -68,10 +71,13 @@ export class CountryPropertyController {
     description: 'Объект обновлён',
     type: CountryPropertyResponseDto,
   })
+
+  @UseGuards(AdminGuard)
   update(@Param('id', ParseIntPipe) id: number, @Body() dto: UpdateCountryPropertyDto) {
     return this.service.update(id, dto);
   }
 
+  @UseGuards(AdminGuard)
   @Delete(':id')
   @ApiOperation({ summary: 'Удалить загородный объект' })
   @ApiParam({ name: 'id', example: 7 })

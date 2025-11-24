@@ -9,12 +9,15 @@ import { CountryPropertyModule } from './country-property/country-property.modul
 import { CommercialPropertyModule } from './commercial-property/commercial-property.module';
 import { S3Module } from './s3/s3.module';
 import { LeadModule } from './lead/lead.module';
+import { ReviewsModule } from './reviews/reviews.module';
+import { RealtorModule } from './realtor/realtor.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
   imports: [ConfigModule.forRoot({
     isGlobal: true
-  }), PrismaModule, NewBuildingComplexModule, ReadyApartmentModule, NewBuildingApartmentModule, RentalApartmetsModule, CountryPropertyModule, CommercialPropertyModule, S3Module, LeadModule],
+  }), PrismaModule, NewBuildingComplexModule, ReadyApartmentModule, NewBuildingApartmentModule, RentalApartmetsModule, CountryPropertyModule, CommercialPropertyModule, S3Module, LeadModule, ReviewsModule, RealtorModule, AuthModule],
   controllers: [],
   providers: [
   ],
