@@ -59,6 +59,9 @@ export class RentalPaginationDto {
   @Min(0)
   areaMin?: number;
 
+  @IsString()
+  city: string;
+
   @IsOptional()
   @Type(() => Number)
   @Min(0)

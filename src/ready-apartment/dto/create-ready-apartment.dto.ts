@@ -67,6 +67,10 @@ export class CreateReadyApartmentDto {
   @Min(0)
   metroDistance?: number;
 
+  @IsOptional()
+  @IsString()
+  city: string;    
+
   @ApiProperty({ example: 'Возможна сдача', description: 'Описание' })
   @IsOptional()
   @IsString()

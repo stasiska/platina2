@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsInt, Min, IsPositive } from 'class-validator';
+import { IsInt, Min, IsPositive, IsString } from 'class-validator';
 
 export class CreateNewBuildingApartmentDto {
   @ApiProperty({ example: 3, description: 'ID жилого комплекса' })
@@ -17,6 +17,9 @@ export class CreateNewBuildingApartmentDto {
   @Min(1)
   area: number;
 
+  @IsString()
+  city: string;
+      
   @ApiProperty({ example: 18500000, description: 'Полная цена' })
   @IsInt()
   @Min(0)

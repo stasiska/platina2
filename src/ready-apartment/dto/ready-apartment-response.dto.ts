@@ -65,6 +65,8 @@ export class ReadyApartmentResponseDto {
   @ApiProperty({ example: '2025-11-20T16:00:00.000Z' })
   createdAt: string;
 
+  city: string;
+
   @ApiProperty({ example: '2025-11-20T16:45:00.000Z' })
   updatedAt: string;
 }

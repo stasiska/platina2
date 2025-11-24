@@ -7,6 +7,7 @@ import {
   Max,
   Min,
   IsInt,
+  IsString,
 } from 'class-validator';
 
 export class PaginationQueryDto {
@@ -34,4 +35,10 @@ export class PaginationQueryDto {
   @IsOptional()
   @IsIn(['asc', 'desc'] as const)
   order?: 'asc' | 'desc' = 'desc';
+
+  
+  @IsOptional()
+  @IsString()
+  city?: string;
+      
 }

@@ -77,6 +77,10 @@ export class CountryPaginationDto {
   @Min(0)
   bedrooms?: number;
 
+  @IsOptional()
+  @IsString()
+  city?: string;
+  
   @ApiProperty({ default: 0, description: 'Минимальная площадь участка' })
   @IsOptional()
   @Type(() => Number)

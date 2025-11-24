@@ -30,6 +30,8 @@ export class CountryPropertyResponseDto {
   @ApiProperty({ example: 15, description: 'Площадь участка в сотках' })
   landArea: number;
 
+  city: string;
+
   @ApiProperty({ example: 5, description: 'Количество спален' })
   bedrooms: number;
 

@@ -107,6 +107,7 @@ model NewBuildingComplex {
   metro             String?
   metroDistance     Int?      // расстояние до метро в минутах
   
+  city              String?
   developer         String    // застройщик
   priceFrom         Int       // от какой суммы квартиры
   areaFrom          Int?      // площадь от (м²)
@@ -148,7 +149,8 @@ model NewBuildingApartment {
   price       Int                  // цена
   pricePerM2  Int                  // цена за м²
   floor       Int                  // этаж
-  
+  city              String?
+
   // Фото планировки
   images      Image[]
   
@@ -196,7 +198,7 @@ model ReadyApartment {
   title           String    // название
   complexName     String?   // название комплекса (если это комплекс)
   address         String
-  
+  city              String?
   area            Int       // метраж (м²)
   price           Int       // цена
   pricePerM2      Int       // цена за м²
@@ -233,7 +235,7 @@ model RentalApartment {
   bedrooms        Int       // количество спален (студия = 0)
   floor           Int       // этаж
   totalFloors     Int       // всего этажей в доме
-  
+  city              String?
   metro           String?   // ближайшее метро (опционально)
   metroDistance   Int?      // расстояние до метро в минутах
   
@@ -260,7 +262,7 @@ model CountryProperty {
   
   metro           String?   // ближайшее метро
   metroDistance   Int?      // расстояние до метро в минутах
-  
+  city              String? 
   price           Int       // цена
   landArea        Int       // количество соток
   bedrooms        Int       // количество спален
@@ -291,7 +293,8 @@ model CommercialProperty {
   price           Int       // цена
   pricePerM2      Int       // цена за м²
   area            Int       // метраж (м²)
-  
+  city              String?
+ 
   hasFinishing    Boolean   @default(false) // отделка (true/false)
   purpose         String?   // назначение (опционально)
   

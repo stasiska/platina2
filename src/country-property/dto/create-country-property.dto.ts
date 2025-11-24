@@ -20,6 +20,9 @@ export class CreateCountryPropertyDto {
   @IsPositive()
   landArea: number; 
 
+  @IsString()
+  city: string;
+  
   @ApiProperty({ example: 5, description: 'Количество спален' })
   @IsInt()
   @Min(0)
@@ -46,6 +49,7 @@ export class CreateCountryPropertyDto {
   @Min(0)
   metroDistance?: number;
 
+  
   @ApiProperty({ example: 'Коттедж в Истринском районе', description: 'Описание объекта', nullable: true })
   @IsOptional()
   @IsString()
