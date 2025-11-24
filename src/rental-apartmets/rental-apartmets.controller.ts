@@ -29,11 +29,11 @@ import { AdminGuard } from 'src/auth/guard/admin.guard';
 
 @ApiTags('rental-apartments')
 @ApiBearerAuth()
-@Controller('api/rental-apartments')
+@Controller('rental-apartments')
 export class RentalApartmetsController {
   constructor(private readonly service: RentalApartmetsService) {}
 
-  @UseGuards(AdminGuard)
+  //@UseGuards(AdminGuard)
   @Post()
   @ApiOperation({ summary: 'Создать объявление об аренде квартиры' })
   @ApiBody({ type: CreateRentalApartmentDto })
@@ -43,6 +43,7 @@ export class RentalApartmetsController {
     type: RentalApartmentResponseDto,
   })
   create(@Body() dto: CreateRentalApartmentDto) {
+    console.log("helelel")
     return this.service.create(dto);
   }
 
