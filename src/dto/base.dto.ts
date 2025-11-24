@@ -186,7 +186,7 @@ export class NewBuildingComplexPaginationDto extends BasePaginationDto {
   @IsOptional()
   @IsString()
   developer?: string;
-
+//
   @ApiProperty({
     required: false,
     enum: BuildingClass,
