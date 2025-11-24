@@ -14,7 +14,6 @@ import {
 import { ReadyApartmentService } from './ready-apartment.service';
 import { CreateReadyApartmentDto } from './dto/create-ready-apartment.dto';
 import { UpdateReadyApartmentDto } from './dto/update-ready-apartment.dto';
-import { PropertyPaginationDto } from './dto/property-pagination.dto';
 import {
   ApiTags,
   ApiOperation,
@@ -26,6 +25,7 @@ import {
 import { ReadyApartmentResponseDto } from './dto/ready-apartment-response.dto';
 import { ReadyApartmentPaginatedResponseDto } from './dto/ready-apartment-paginated-response.dto';
 import { AdminGuard } from 'src/auth/guard/admin.guard';
+import { ReadyApartmentPaginationDto } from 'src/dto/base.dto';
 
 @ApiTags('ready-apartments')
 @ApiBearerAuth()
@@ -54,7 +54,7 @@ export class ReadyApartmentController {
     description: 'Список квартир на вторичном рынке',
     type: ReadyApartmentPaginatedResponseDto,
   })
-  findAll(@Query() query: PropertyPaginationDto) {
+  findAll(@Query() query: ReadyApartmentPaginationDto) {
     return this.service.findAllAndSearch(query);
   }
 
@@ -65,7 +65,7 @@ export class ReadyApartmentController {
     description: 'Результаты поиска',
     type: ReadyApartmentPaginatedResponseDto,
   })
-  search(@Query() query: PropertyPaginationDto) {
+  search(@Query() query: ReadyApartmentPaginationDto) {
     return this.service.findAllAndSearch(query);
   }
 

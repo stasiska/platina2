@@ -30,9 +30,6 @@ export class CreateNewBuildingComplexDto {
   @IsString()
   developer: string;
 
-  @IsString()
-  city: string;
-    
   @ApiProperty({ example: 12500000, description: 'Цена от (руб)' })
   @IsInt()
   priceFrom: number;

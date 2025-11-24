@@ -4,6 +4,7 @@ import { CreateNewBuildingComplexDto } from './dto/create-new-building-complex.d
 import { UpdateNewBuildingComplexDto } from './dto/update-new-building-complex.dto';
 import { PropertyPaginationDto } from 'src/common/dto/property-pagination.dto';
 import { PaginatedResponseDto } from 'src/common/dto/paginated-response.dto';
+import { NewBuildingComplexPaginationDto } from 'src/dto/base.dto';
 
 @Injectable()
 export class NewBuildingComplexService {
@@ -21,7 +22,7 @@ export class NewBuildingComplexService {
   }
 
   // Универсальный метод (и для findAll, и для search)
-  private async findManyWithPagination(dto: PropertyPaginationDto) {
+  private async findManyWithPagination(dto: NewBuildingComplexPaginationDto) {
     const {
       skip,
       take,
@@ -34,6 +35,7 @@ export class NewBuildingComplexService {
       minPrice,
       maxPrice,
       hasParking,
+      city
     } = dto;
 
     const where: any = {
@@ -43,8 +45,9 @@ export class NewBuildingComplexService {
       ...(buildingClass && { buildingClass }),
       ...(minPrice && { priceFrom: { gte: +minPrice } }),
       ...(maxPrice && { priceFrom: { lte: +maxPrice } }),
+    ...(city && { city: { contains: city, mode: 'insensitive' } }),
       ...(hasParking !== undefined && {
-        hasParking: hasParking === true || hasParking === 'true' || hasParking === '1',
+        hasParking: hasParking === true,
       }),
     };
 
@@ -68,11 +71,11 @@ export class NewBuildingComplexService {
     return new PaginatedResponseDto(data, total, skip, take);
   }
 
-  async findAll(dto: PropertyPaginationDto) {
+  async findAll(dto: NewBuildingComplexPaginationDto) {
     return this.findManyWithPagination(dto);
   }
 
-  async search(dto: PropertyPaginationDto) {
+  async search(dto: NewBuildingComplexPaginationDto ) {
     return this.findManyWithPagination(dto);
   }
 

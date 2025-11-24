@@ -7,6 +7,7 @@ import { ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/s
 import { CountryPropertyResponseDto } from './dto/country-property-response.dto';
 import { CountryPaginatedResponseDto } from './dto/country-paginated-response.dto';
 import { AdminGuard } from 'src/auth/guard/admin.guard';
+import { CountryPropertyPaginationDto } from 'src/dto/base.dto';
 
 @ApiTags('country-properties')
 @Controller('country-properties')
@@ -33,7 +34,7 @@ export class CountryPropertyController {
     description: 'Список объектов',
     type: CountryPaginatedResponseDto, 
   })
-  findAll(@Query() query: CountryPaginationDto) {
+  findAll(@Query() query: CountryPropertyPaginationDto) {
     return this.service.findAll(query);
   }
 
@@ -44,7 +45,7 @@ export class CountryPropertyController {
     type: CountryPaginatedResponseDto,
   })
   @Get('search')
-  search(@Query() query: CountryPaginationDto) {
+  search(@Query() query: CountryPropertyPaginationDto) {
     return this.service.search(query);
   }
 

@@ -16,42 +16,44 @@ export class RentalApartmetsService {
     });
   }
 
-  private async findManyWithPagination(dto: RentalPaginationDto) {
-    const {
+private async findManyWithPagination(dto: RentalPaginationDto) {
+  const {
+    skip,
+    take,
+    orderBy,
+    order,
+    metro,
+    minPrice,
+    maxPrice,
+    bedrooms,
+    areaMin,
+    areaMax,
+    city, // <-- Добавьте деструктуризацию city
+  } = dto;
+
+  const where: any = {
+    ...(metro && { metro: { contains: metro, mode: 'insensitive' } }),
+    ...(minPrice && { pricePerMonth: { gte: +minPrice } }),
+    ...(maxPrice && { pricePerMonth: { lte: +maxPrice } }),
+    ...(bedrooms !== undefined && { bedrooms }),
+    ...(areaMin && { area: { gte: areaMin } }),
+    ...(areaMax && { area: { lte: areaMax } }),
+    ...(city && { city: { contains: city, mode: 'insensitive' } }), // <-- Исправлено: city вместо address
+  };
+  
+  const [data, total] = await Promise.all([
+    this.prisma.rentalApartment.findMany({
+      where,
       skip,
       take,
-      orderBy,
-      order,
-      metro,
-      minPrice,
-      maxPrice,
-      bedrooms,
-      areaMin,
-      areaMax,
-    } = dto;
+      orderBy: { [orderBy]: order },
+      include: { images: { orderBy: { id: 'asc' } } },
+    }),
+    this.prisma.rentalApartment.count({ where }),
+  ]);
 
-    const where: any = {
-      ...(metro && { metro: { contains: metro, mode: 'insensitive' } }),
-      ...(minPrice && { pricePerMonth: { gte: +minPrice } }),
-      ...(maxPrice && { pricePerMonth: { lte: +maxPrice } }),
-      ...(bedrooms !== undefined && { bedrooms }),
-      ...(areaMin && { area: { gte: areaMin } }),
-      ...(areaMax && { area: { lte: areaMax } }),
-    };
-
-    const [data, total] = await Promise.all([
-      this.prisma.rentalApartment.findMany({
-        where,
-        skip,
-        take,
-        orderBy: { [orderBy]: order },
-        include: { images: { orderBy: { id: 'asc' } } },
-      }),
-      this.prisma.rentalApartment.count({ where }),
-    ]);
-
-    return new PaginatedResponseDto(data, total, skip!, take!);
-  }
+  return new PaginatedResponseDto(data, total, skip!, take!);
+}
 
   async findAll(dto: RentalPaginationDto) {
     return this.findManyWithPagination(dto);

@@ -28,6 +28,7 @@ import { CommercialPropertyService } from './commercial-property.service';
 import { CommercialPaginationDto } from './dto/commercial-pagination.dto';
 import { CommercialPaginatedResponseDto } from './dto/commercial-paginated-response.dto';
 import { AdminGuard } from 'src/auth/guard/admin.guard';
+import { CommercialPropertyPaginationDto } from 'src/dto/base.dto';
 
 @ApiTags('commercial-properties')
 @ApiBearerAuth()
@@ -55,7 +56,7 @@ export class CommercialPropertyController {
   description: 'Список объектов с пагинацией',
   type: CommercialPaginatedResponseDto, 
 })
-  findAll(@Query() query: CommercialPaginationDto) {
+  findAll(@Query() query: CommercialPropertyPaginationDto) {
     return this.service.findAll(query);
   }
 
@@ -72,7 +73,7 @@ export class CommercialPropertyController {
     description: 'Результаты поиска',
     type: () => PaginatedResponseDto<CommercialPropertyResponseDto>,
   })
-  search(@Query() query: CommercialPaginationDto) {
+  search(@Query() query: CommercialPropertyPaginationDto) {
     return this.service.search(query);
   }
 
