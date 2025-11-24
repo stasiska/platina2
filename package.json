@@ -5,12 +5,16 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "prisma:generate": "prisma generate",
+    "seed": "prisma db seed",
     "prisma:push": "prisma db push",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
