@@ -59,7 +59,7 @@ export class LeadService {
 <b>Телефон:</b> <a href="tel:${phone}">${phone}</a>
 
 <b>Тип:</b> ${typeText}
-<b>ссыдка на обьект:</b> <a href="${link}">${link}</a>
+<b>ссылка на обьект:</b> <a href="${link}">${link}</a>
 
 <b>Время:</b> ${new Date().toLocaleString('ru-RU')}
       `.trim();
