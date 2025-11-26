@@ -74,6 +74,11 @@ export class PropertyPaginationDto {
   @Min(0)
   bedrooms?: number;
 
+  lat?: number;
+  
+  lng?: number;
+  
+
   @ApiProperty({ default: 1, description: 'Площадь' })
   @IsOptional()
   @Type(() => Number)

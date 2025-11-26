@@ -33,6 +33,9 @@ export class NewBuildingComplexResponseDto {
   @ApiProperty({ example: 'Коломенская', description: 'Ближайшее метро', nullable: true })
   metro: string | null;
 
+  lat: number;
+  lng: number;
+  
   @ApiProperty({ example: 8, description: 'Расстояние до метро пешком (в минутах)', nullable: true })
   metroDistance: number | null;
 

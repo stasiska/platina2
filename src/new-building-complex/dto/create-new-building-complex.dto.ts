@@ -1,5 +1,6 @@
-import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsInt, IsOptional, IsBoolean, IsEnum, IsDateString } from 'class-validator';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { Type } from 'class-transformer';
+import { IsString, IsInt, IsOptional, IsBoolean, IsEnum, IsDateString, IsNumber } from 'class-validator';
 import { BuildingClass } from 'prisma/__generated__';
 
 export class CreateNewBuildingComplexDto {
@@ -38,6 +39,19 @@ export class CreateNewBuildingComplexDto {
   @IsOptional()
   @IsInt()
   areaFrom?: number;
+
+  @ApiPropertyOptional({ example: 55.751244, description: 'Широта' })
+  @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
+  lat?: number;
+
+  @ApiPropertyOptional({ example: 37.618423, description: 'Долгота' })
+  @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
+  lng?: number;
+
 
   @ApiProperty({ example: 'COMFORT', enum: BuildingClass, description: 'Класс недвижимости: ECONOM, COMFORT, BUSINESS, ELITE' })
   @IsEnum(BuildingClass)

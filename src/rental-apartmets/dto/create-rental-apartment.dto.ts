@@ -1,4 +1,6 @@
-import { IsInt, IsString, IsOptional, Min, IsPositive } from 'class-validator';
+import { ApiPropertyOptional } from '@nestjs/swagger';
+import { Type } from 'class-transformer';
+import { IsInt, IsString, IsOptional, Min, IsPositive, IsNumber } from 'class-validator';
 
 export class CreateRentalApartmentDto {
   @IsString()
@@ -36,6 +38,20 @@ export class CreateRentalApartmentDto {
   @Min(0)
   metroDistance?: number;
 
+  
+    @ApiPropertyOptional({ example: 55.751244, description: 'Широта' })
+    @IsOptional()
+    @Type(() => Number)
+    @IsNumber()
+    lat?: number;
+  
+    @ApiPropertyOptional({ example: 37.618423, description: 'Долгота' })
+    @IsOptional()
+    @Type(() => Number)
+    @IsNumber()
+    lng?: number;
+  
+  
 
   @IsString()
   city: string;
