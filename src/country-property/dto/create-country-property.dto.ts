@@ -1,5 +1,6 @@
-import { ApiProperty } from '@nestjs/swagger';
-import { IsInt, IsString, IsOptional, Min, IsPositive } from 'class-validator';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { Type } from 'class-transformer';
+import { IsInt, IsString, IsOptional, Min, IsPositive, IsNumber } from 'class-validator';
 
 export class CreateCountryPropertyDto {
   @ApiProperty({ example: 'Коттедж в Истринском районе', description: 'Название объекта' })
@@ -22,7 +23,19 @@ export class CreateCountryPropertyDto {
 
   @IsString()
   city: string;
-  
+
+  @ApiPropertyOptional({ example: 55.751244, description: 'Широта' })
+  @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
+  lat?: number;
+
+  @ApiPropertyOptional({ example: 37.618423, description: 'Долгота' })
+  @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
+  lng?: number;
+
   @ApiProperty({ example: 5, description: 'Количество спален' })
   @IsInt()
   @Min(0)

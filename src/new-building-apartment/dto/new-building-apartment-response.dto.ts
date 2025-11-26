@@ -38,6 +38,12 @@ export class NewBuildingApartmentResponseDto {
   @ApiProperty({ example: 2, description: 'Количество комнат (0 = студия)' })
   bedrooms: number;
 
+  @ApiProperty({ example: 55.751244, description: 'Широта' })
+  lat: number;
+
+  @ApiProperty({ example: 37.618423, description: 'Долгота' })
+  lng: number;
+
   city: string;
 
   @ApiProperty({ example: 68, description: 'Площадь в м²' })

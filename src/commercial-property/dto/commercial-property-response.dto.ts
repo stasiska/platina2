@@ -42,6 +42,9 @@ export class CommercialPropertyResponseDto {
   @ApiProperty({ example: 'Аэропорт', description: 'Ближайшая станция метро', nullable: true })
   metro: string | null;
 
+  lat: number;
+  lng: number;
+
   city: string;
   @ApiProperty({ example: 5, description: 'Расстояние до метро пешком (в минутах)', nullable: true })
   metroDistance: number | null;

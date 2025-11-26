@@ -11,6 +11,7 @@ export class CommercialPropertyService {
     constructor(private prisma: PrismaService) {}
 
     async create(dto: CreateCommercialPropertyDto) {
+    console.log(dto.lat, dto.lng)
     return this.prisma.commercialProperty.create({
       data: dto,
       include: { images: { orderBy: { id: 'asc' } } },

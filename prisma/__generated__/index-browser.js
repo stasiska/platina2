@@ -167,6 +167,8 @@ exports.Prisma.NewBuildingComplexScalarFieldEnum = {
   floors: 'floors',
   totalApartments: 'totalApartments',
   availableApartments: 'availableApartments',
+  lat: 'lat',
+  lng: 'lng',
   completionDate: 'completionDate',
   height: 'height',
   hasParking: 'hasParking',
@@ -183,7 +185,11 @@ exports.Prisma.NewBuildingApartmentScalarFieldEnum = {
   price: 'price',
   pricePerM2: 'pricePerM2',
   floor: 'floor',
+  totalFloors: 'totalFloors',
   city: 'city',
+  lat: 'lat',
+  lng: 'lng',
+  type: 'type',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -218,6 +224,8 @@ exports.Prisma.ReadyApartmentScalarFieldEnum = {
   bedrooms: 'bedrooms',
   floor: 'floor',
   totalFloors: 'totalFloors',
+  lat: 'lat',
+  lng: 'lng',
   metro: 'metro',
   metroDistance: 'metroDistance',
   description: 'description',
@@ -233,6 +241,8 @@ exports.Prisma.RentalApartmentScalarFieldEnum = {
   area: 'area',
   pricePerMonth: 'pricePerMonth',
   bedrooms: 'bedrooms',
+  lat: 'lat',
+  lng: 'lng',
   floor: 'floor',
   totalFloors: 'totalFloors',
   city: 'city',
@@ -251,6 +261,8 @@ exports.Prisma.CountryPropertyScalarFieldEnum = {
   metroDistance: 'metroDistance',
   city: 'city',
   price: 'price',
+  lat: 'lat',
+  lng: 'lng',
   landArea: 'landArea',
   bedrooms: 'bedrooms',
   totalFloors: 'totalFloors',
@@ -268,6 +280,8 @@ exports.Prisma.CommercialPropertyScalarFieldEnum = {
   pricePerM2: 'pricePerM2',
   area: 'area',
   city: 'city',
+  lat: 'lat',
+  lng: 'lng',
   hasFinishing: 'hasFinishing',
   purpose: 'purpose',
   metro: 'metro',
@@ -296,14 +310,6 @@ exports.ApplicationStatus = exports.$Enums.ApplicationStatus = {
   PROCESSING: 'PROCESSING',
   COMPLETED: 'COMPLETED',
   CANCELLED: 'CANCELLED'
-};
-
-exports.BuildingClass = exports.$Enums.BuildingClass = {
-  ECONOMY: 'ECONOMY',
-  COMFORT: 'COMFORT',
-  BUSINESS: 'BUSINESS',
-  PREMIUM: 'PREMIUM',
-  ELITE: 'ELITE'
 };
 
 exports.Prisma.ModelName = {

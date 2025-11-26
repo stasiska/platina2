@@ -1,5 +1,6 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsInt, IsString, IsOptional, IsBoolean, Min, IsPositive } from 'class-validator';
+import { IsInt, IsString, IsOptional, IsBoolean, Min, IsPositive, IsNumber } from 'class-validator';
+import { Type } from 'class-transformer';
 
 export class CreateCommercialPropertyDto {
   @ApiProperty({ description: 'Название объекта', example: 'Офис в БЦ "Северная башня"' })
@@ -12,7 +13,19 @@ export class CreateCommercialPropertyDto {
 
   @IsString()
   city: string;
-  
+
+  @ApiPropertyOptional({ example: 55.751244, description: 'Широта' })
+  @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
+  lat?: number;
+
+  @ApiPropertyOptional({ example: 37.618423, description: 'Долгота' })
+  @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
+  lng?: number;
+
   @ApiProperty({ description: 'Полная цена', example: 48500000 })
   @IsInt()
   @IsPositive()
@@ -32,23 +45,23 @@ export class CreateCommercialPropertyDto {
   @IsBoolean()
   hasFinishing?: boolean = false;
 
-  @ApiPropertyOptional({ description: 'Назначение', example: 'офис' })
+  @ApiPropertyOptional()
   @IsOptional()
   @IsString()
   purpose?: string;
 
-  @ApiPropertyOptional({ description: 'Ближайшее метро', example: 'Аэропорт' })
+  @ApiPropertyOptional()
   @IsOptional()
   @IsString()
   metro?: string;
 
-  @ApiPropertyOptional({ description: 'Расстояние до метро в минутах', example: 5 })
+  @ApiPropertyOptional()
   @IsOptional()
   @IsInt()
   @Min(0)
   metroDistance?: number;
 
-  @ApiPropertyOptional({ description: 'Описание', example: 'Светлый офис с ремонтом...' })
+  @ApiPropertyOptional()
   @IsOptional()
   @IsString()
   description?: string;

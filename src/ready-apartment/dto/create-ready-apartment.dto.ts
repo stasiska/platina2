@@ -1,4 +1,5 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { Type } from 'class-transformer';
 import {
   IsString,
   IsInt,
@@ -66,6 +67,19 @@ export class CreateReadyApartmentDto {
   @IsInt()
   @Min(0)
   metroDistance?: number;
+  
+  @ApiPropertyOptional({ example: 55.751244, description: 'Широта' })
+  @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
+  lat?: number;
+
+  @ApiPropertyOptional({ example: 37.618423, description: 'Долгота' })
+  @IsOptional()
+  @Type(() => Number)
+  @IsNumber()
+  lng?: number;
+
 
   @IsOptional()
   @IsString()

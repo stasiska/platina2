@@ -103,7 +103,7 @@ model NewBuildingComplex {
   id                Int       @id @default(autoincrement())
   name              String    // название комплекса
   address           String
-  district          String?
+  district          String? //Район
   metro             String?
   metroDistance     Int?      // расстояние до метро в минутах
   
@@ -111,12 +111,15 @@ model NewBuildingComplex {
   developer         String    // застройщик
   priceFrom         Int       // от какой суммы квартиры
   areaFrom          Int?      // площадь от (м²)
-  buildingClass     BuildingClass // класс жилья
+  buildingClass     String? // класс жилья
   
   floors            Int?      // этажность
   totalApartments   Int?      // квартир всего
   availableApartments Int?    // квартир в продаже
   
+  lat         Float?
+  lng        Float?
+
   completionDate    DateTime? // срок сдачи
   height            Int?      // высота небоскрёба (м)
   hasParking        Boolean   @default(false) // наличие подземной парковки
@@ -149,11 +152,15 @@ model NewBuildingApartment {
   price       Int                  // цена
   pricePerM2  Int                  // цена за м²
   floor       Int                  // этаж
+  totalFloors     Int
   city              String?
+
+  lat         Float?
+  lng         Float?
 
   // Фото планировки
   images      Image[]
-  
+  type        String // 
   createdAt   DateTime             @default(now())
   updatedAt   DateTime             @updatedAt
 }
@@ -206,6 +213,9 @@ model ReadyApartment {
   floor           Int       // этаж
   totalFloors     Int       // всего этажей в здании
   
+  lat         Float?
+  lng        Float?
+
   metro           String?   // ближайшее метро (опционально)
   metroDistance   Int?      // расстояние до метро в минутах
   
@@ -233,6 +243,10 @@ model RentalApartment {
   area            Int       // метраж (м²)
   pricePerMonth   Int       // цена аренды в месяц
   bedrooms        Int       // количество спален (студия = 0)
+  
+  lat         Float?
+  lng        Float?
+
   floor           Int       // этаж
   totalFloors     Int       // всего этажей в доме
   city              String?
@@ -264,6 +278,10 @@ model CountryProperty {
   metroDistance   Int?      // расстояние до метро в минутах
   city              String? 
   price           Int       // цена
+
+  lat         Float?
+  lng        Float?
+
   landArea        Int       // количество соток
   bedrooms        Int       // количество спален
   totalFloors     Int       // всего этажей
@@ -295,6 +313,9 @@ model CommercialProperty {
   area            Int       // метраж (м²)
   city              String?
  
+  lat         Float?
+  lng        Float?
+
   hasFinishing    Boolean   @default(false) // отделка (true/false)
   purpose         String?   // назначение (опционально)
   
