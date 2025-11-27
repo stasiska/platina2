@@ -40,6 +40,8 @@ export class NewBuildingApartmentResponseDto {
 
   apartmentNumber: number;
 
+  korpus: number;
+
   title: string; 
 
   @ApiProperty({ example: 55.751244, description: 'Широта' })

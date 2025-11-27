@@ -187,6 +187,7 @@ exports.Prisma.NewBuildingApartmentScalarFieldEnum = {
   pricePerM2: 'pricePerM2',
   floor: 'floor',
   totalFloors: 'totalFloors',
+  korpus: 'korpus',
   city: 'city',
   apartmentNumber: 'apartmentNumber',
   lat: 'lat',

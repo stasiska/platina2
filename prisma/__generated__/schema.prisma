@@ -151,6 +151,7 @@ model NewBuildingApartment {
   pricePerM2      Int // цена за м²
   floor           Int // этаж
   totalFloors     Int
+  korpus          Int     @default(0)
   city            String?
   apartmentNumber Int     @default(0)
   lat             Float?

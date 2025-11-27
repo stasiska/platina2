@@ -19,6 +19,9 @@ export class CreateNewBuildingApartmentDto {
   @IsInt()
   apartmentNumber: number;
 
+  @IsInt()
+  korpus: number;
+
   @ApiPropertyOptional({ example: 55.751244, description: 'Широта' })
   @IsOptional()
   @Type(() => Number)
