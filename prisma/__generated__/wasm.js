@@ -180,6 +180,7 @@ exports.Prisma.NewBuildingComplexScalarFieldEnum = {
 exports.Prisma.NewBuildingApartmentScalarFieldEnum = {
   id: 'id',
   complexId: 'complexId',
+  title: 'title',
   bedrooms: 'bedrooms',
   area: 'area',
   price: 'price',
@@ -187,6 +188,7 @@ exports.Prisma.NewBuildingApartmentScalarFieldEnum = {
   floor: 'floor',
   totalFloors: 'totalFloors',
   city: 'city',
+  apartmentNumber: 'apartmentNumber',
   lat: 'lat',
   lng: 'lng',
   type: 'type',

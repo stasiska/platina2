@@ -144,16 +144,17 @@ model NewBuildingApartment {
   complexId Int
   complex   NewBuildingComplex @relation(fields: [complexId], references: [id], onDelete: Cascade)
 
-  bedrooms    Int // количество спален (студия = 0)
-  area        Int // метраж (м²)
-  price       Int // цена
-  pricePerM2  Int // цена за м²
-  floor       Int // этаж
-  totalFloors Int
-  city        String?
-
-  lat Float?
-  lng Float?
+  title           String  @default("null")
+  bedrooms        Int // количество спален (студия = 0)
+  area            Int // метраж (м²)
+  price           Int // цена
+  pricePerM2      Int // цена за м²
+  floor           Int // этаж
+  totalFloors     Int
+  city            String?
+  apartmentNumber Int     @default(0)
+  lat             Float?
+  lng             Float?
 
   // Фото планировки
   images    Image[]

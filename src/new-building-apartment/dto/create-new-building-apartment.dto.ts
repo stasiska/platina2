@@ -13,6 +13,12 @@ export class CreateNewBuildingApartmentDto {
   @Min(0)
   bedrooms: number;
 
+  @IsString()
+  title: string;
+
+  @IsInt()
+  apartmentNumber: number;
+
   @ApiPropertyOptional({ example: 55.751244, description: 'Широта' })
   @IsOptional()
   @Type(() => Number)
