@@ -26,6 +26,12 @@ export class CreateCommercialPropertyDto {
   @IsNumber()
   lng?: number;
 
+  @ApiProperty({ example: '2', description: 'Id в crm', })
+  @IsOptional()
+  @IsString()
+  currentId?: string;
+
+
   @ApiProperty({ description: 'Полная цена', example: 48500000 })
   @IsInt()
   @IsPositive()

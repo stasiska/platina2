@@ -10439,6 +10439,7 @@ export namespace Prisma {
     bedrooms: number | null
     floor: number | null
     totalFloors: number | null
+    currentId: string | null
     lat: number | null
     lng: number | null
     metro: string | null
@@ -10461,6 +10462,7 @@ export namespace Prisma {
     bedrooms: number | null
     floor: number | null
     totalFloors: number | null
+    currentId: string | null
     lat: number | null
     lng: number | null
     metro: string | null
@@ -10483,6 +10485,7 @@ export namespace Prisma {
     bedrooms: number
     floor: number
     totalFloors: number
+    currentId: number
     lat: number
     lng: number
     metro: number
@@ -10533,6 +10536,7 @@ export namespace Prisma {
     bedrooms?: true
     floor?: true
     totalFloors?: true
+    currentId?: true
     lat?: true
     lng?: true
     metro?: true
@@ -10555,6 +10559,7 @@ export namespace Prisma {
     bedrooms?: true
     floor?: true
     totalFloors?: true
+    currentId?: true
     lat?: true
     lng?: true
     metro?: true
@@ -10577,6 +10582,7 @@ export namespace Prisma {
     bedrooms?: true
     floor?: true
     totalFloors?: true
+    currentId?: true
     lat?: true
     lng?: true
     metro?: true
@@ -10686,6 +10692,7 @@ export namespace Prisma {
     bedrooms: number
     floor: number
     totalFloors: number
+    currentId: string | null
     lat: number | null
     lng: number | null
     metro: string | null
@@ -10727,6 +10734,7 @@ export namespace Prisma {
     bedrooms?: boolean
     floor?: boolean
     totalFloors?: boolean
+    currentId?: boolean
     lat?: boolean
     lng?: boolean
     metro?: boolean
@@ -10751,6 +10759,7 @@ export namespace Prisma {
     bedrooms?: boolean
     floor?: boolean
     totalFloors?: boolean
+    currentId?: boolean
     lat?: boolean
     lng?: boolean
     metro?: boolean
@@ -10773,6 +10782,7 @@ export namespace Prisma {
     bedrooms?: boolean
     floor?: boolean
     totalFloors?: boolean
+    currentId?: boolean
     lat?: boolean
     lng?: boolean
     metro?: boolean
@@ -10795,6 +10805,7 @@ export namespace Prisma {
     bedrooms?: boolean
     floor?: boolean
     totalFloors?: boolean
+    currentId?: boolean
     lat?: boolean
     lng?: boolean
     metro?: boolean
@@ -10805,7 +10816,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type ReadyApartmentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "complexName" | "address" | "city" | "area" | "price" | "pricePerM2" | "bedrooms" | "floor" | "totalFloors" | "lat" | "lng" | "metro" | "metroDistance" | "description" | "developer" | "createdAt" | "updatedAt", ExtArgs["result"]["readyApartment"]>
+  export type ReadyApartmentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "complexName" | "address" | "city" | "area" | "price" | "pricePerM2" | "bedrooms" | "floor" | "totalFloors" | "currentId" | "lat" | "lng" | "metro" | "metroDistance" | "description" | "developer" | "createdAt" | "updatedAt", ExtArgs["result"]["readyApartment"]>
   export type ReadyApartmentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     images?: boolean | ReadyApartment$imagesArgs<ExtArgs>
     _count?: boolean | ReadyApartmentCountOutputTypeDefaultArgs<ExtArgs>
@@ -10830,6 +10841,7 @@ export namespace Prisma {
       bedrooms: number
       floor: number
       totalFloors: number
+      currentId: string | null
       lat: number | null
       lng: number | null
       metro: string | null
@@ -11273,6 +11285,7 @@ export namespace Prisma {
     readonly bedrooms: FieldRef<"ReadyApartment", 'Int'>
     readonly floor: FieldRef<"ReadyApartment", 'Int'>
     readonly totalFloors: FieldRef<"ReadyApartment", 'Int'>
+    readonly currentId: FieldRef<"ReadyApartment", 'String'>
     readonly lat: FieldRef<"ReadyApartment", 'Float'>
     readonly lng: FieldRef<"ReadyApartment", 'Float'>
     readonly metro: FieldRef<"ReadyApartment", 'String'>
@@ -11756,6 +11769,7 @@ export namespace Prisma {
     bedrooms: number | null
     lat: number | null
     lng: number | null
+    currentId: string | null
     floor: number | null
     totalFloors: number | null
     city: string | null
@@ -11775,6 +11789,7 @@ export namespace Prisma {
     bedrooms: number | null
     lat: number | null
     lng: number | null
+    currentId: string | null
     floor: number | null
     totalFloors: number | null
     city: string | null
@@ -11794,6 +11809,7 @@ export namespace Prisma {
     bedrooms: number
     lat: number
     lng: number
+    currentId: number
     floor: number
     totalFloors: number
     city: number
@@ -11839,6 +11855,7 @@ export namespace Prisma {
     bedrooms?: true
     lat?: true
     lng?: true
+    currentId?: true
     floor?: true
     totalFloors?: true
     city?: true
@@ -11858,6 +11875,7 @@ export namespace Prisma {
     bedrooms?: true
     lat?: true
     lng?: true
+    currentId?: true
     floor?: true
     totalFloors?: true
     city?: true
@@ -11877,6 +11895,7 @@ export namespace Prisma {
     bedrooms?: true
     lat?: true
     lng?: true
+    currentId?: true
     floor?: true
     totalFloors?: true
     city?: true
@@ -11983,6 +12002,7 @@ export namespace Prisma {
     bedrooms: number
     lat: number | null
     lng: number | null
+    currentId: string | null
     floor: number
     totalFloors: number
     city: string | null
@@ -12021,6 +12041,7 @@ export namespace Prisma {
     bedrooms?: boolean
     lat?: boolean
     lng?: boolean
+    currentId?: boolean
     floor?: boolean
     totalFloors?: boolean
     city?: boolean
@@ -12042,6 +12063,7 @@ export namespace Prisma {
     bedrooms?: boolean
     lat?: boolean
     lng?: boolean
+    currentId?: boolean
     floor?: boolean
     totalFloors?: boolean
     city?: boolean
@@ -12061,6 +12083,7 @@ export namespace Prisma {
     bedrooms?: boolean
     lat?: boolean
     lng?: boolean
+    currentId?: boolean
     floor?: boolean
     totalFloors?: boolean
     city?: boolean
@@ -12080,6 +12103,7 @@ export namespace Prisma {
     bedrooms?: boolean
     lat?: boolean
     lng?: boolean
+    currentId?: boolean
     floor?: boolean
     totalFloors?: boolean
     city?: boolean
@@ -12090,7 +12114,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type RentalApartmentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "address" | "area" | "pricePerMonth" | "bedrooms" | "lat" | "lng" | "floor" | "totalFloors" | "city" | "metro" | "metroDistance" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["rentalApartment"]>
+  export type RentalApartmentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "address" | "area" | "pricePerMonth" | "bedrooms" | "lat" | "lng" | "currentId" | "floor" | "totalFloors" | "city" | "metro" | "metroDistance" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["rentalApartment"]>
   export type RentalApartmentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     images?: boolean | RentalApartment$imagesArgs<ExtArgs>
     _count?: boolean | RentalApartmentCountOutputTypeDefaultArgs<ExtArgs>
@@ -12112,6 +12136,7 @@ export namespace Prisma {
       bedrooms: number
       lat: number | null
       lng: number | null
+      currentId: string | null
       floor: number
       totalFloors: number
       city: string | null
@@ -12552,6 +12577,7 @@ export namespace Prisma {
     readonly bedrooms: FieldRef<"RentalApartment", 'Int'>
     readonly lat: FieldRef<"RentalApartment", 'Float'>
     readonly lng: FieldRef<"RentalApartment", 'Float'>
+    readonly currentId: FieldRef<"RentalApartment", 'String'>
     readonly floor: FieldRef<"RentalApartment", 'Int'>
     readonly totalFloors: FieldRef<"RentalApartment", 'Int'>
     readonly city: FieldRef<"RentalApartment", 'String'>
@@ -13034,6 +13060,7 @@ export namespace Prisma {
     metroDistance: number | null
     city: string | null
     price: number | null
+    currentId: string | null
     lat: number | null
     lng: number | null
     landArea: number | null
@@ -13053,6 +13080,7 @@ export namespace Prisma {
     metroDistance: number | null
     city: string | null
     price: number | null
+    currentId: string | null
     lat: number | null
     lng: number | null
     landArea: number | null
@@ -13072,6 +13100,7 @@ export namespace Prisma {
     metroDistance: number
     city: number
     price: number
+    currentId: number
     lat: number
     lng: number
     landArea: number
@@ -13117,6 +13146,7 @@ export namespace Prisma {
     metroDistance?: true
     city?: true
     price?: true
+    currentId?: true
     lat?: true
     lng?: true
     landArea?: true
@@ -13136,6 +13166,7 @@ export namespace Prisma {
     metroDistance?: true
     city?: true
     price?: true
+    currentId?: true
     lat?: true
     lng?: true
     landArea?: true
@@ -13155,6 +13186,7 @@ export namespace Prisma {
     metroDistance?: true
     city?: true
     price?: true
+    currentId?: true
     lat?: true
     lng?: true
     landArea?: true
@@ -13261,6 +13293,7 @@ export namespace Prisma {
     metroDistance: number | null
     city: string | null
     price: number
+    currentId: string | null
     lat: number | null
     lng: number | null
     landArea: number
@@ -13299,6 +13332,7 @@ export namespace Prisma {
     metroDistance?: boolean
     city?: boolean
     price?: boolean
+    currentId?: boolean
     lat?: boolean
     lng?: boolean
     landArea?: boolean
@@ -13320,6 +13354,7 @@ export namespace Prisma {
     metroDistance?: boolean
     city?: boolean
     price?: boolean
+    currentId?: boolean
     lat?: boolean
     lng?: boolean
     landArea?: boolean
@@ -13339,6 +13374,7 @@ export namespace Prisma {
     metroDistance?: boolean
     city?: boolean
     price?: boolean
+    currentId?: boolean
     lat?: boolean
     lng?: boolean
     landArea?: boolean
@@ -13358,6 +13394,7 @@ export namespace Prisma {
     metroDistance?: boolean
     city?: boolean
     price?: boolean
+    currentId?: boolean
     lat?: boolean
     lng?: boolean
     landArea?: boolean
@@ -13369,7 +13406,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type CountryPropertyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "address" | "metro" | "metroDistance" | "city" | "price" | "lat" | "lng" | "landArea" | "bedrooms" | "totalFloors" | "pricePerM2" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["countryProperty"]>
+  export type CountryPropertyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "address" | "metro" | "metroDistance" | "city" | "price" | "currentId" | "lat" | "lng" | "landArea" | "bedrooms" | "totalFloors" | "pricePerM2" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["countryProperty"]>
   export type CountryPropertyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     images?: boolean | CountryProperty$imagesArgs<ExtArgs>
     _count?: boolean | CountryPropertyCountOutputTypeDefaultArgs<ExtArgs>
@@ -13390,6 +13427,7 @@ export namespace Prisma {
       metroDistance: number | null
       city: string | null
       price: number
+      currentId: string | null
       lat: number | null
       lng: number | null
       landArea: number
@@ -13830,6 +13868,7 @@ export namespace Prisma {
     readonly metroDistance: FieldRef<"CountryProperty", 'Int'>
     readonly city: FieldRef<"CountryProperty", 'String'>
     readonly price: FieldRef<"CountryProperty", 'Int'>
+    readonly currentId: FieldRef<"CountryProperty", 'String'>
     readonly lat: FieldRef<"CountryProperty", 'Float'>
     readonly lng: FieldRef<"CountryProperty", 'Float'>
     readonly landArea: FieldRef<"CountryProperty", 'Int'>
@@ -14305,6 +14344,7 @@ export namespace Prisma {
     id: number | null
     title: string | null
     address: string | null
+    currentId: string | null
     price: number | null
     pricePerM2: number | null
     area: number | null
@@ -14324,6 +14364,7 @@ export namespace Prisma {
     id: number | null
     title: string | null
     address: string | null
+    currentId: string | null
     price: number | null
     pricePerM2: number | null
     area: number | null
@@ -14343,6 +14384,7 @@ export namespace Prisma {
     id: number
     title: number
     address: number
+    currentId: number
     price: number
     pricePerM2: number
     area: number
@@ -14384,6 +14426,7 @@ export namespace Prisma {
     id?: true
     title?: true
     address?: true
+    currentId?: true
     price?: true
     pricePerM2?: true
     area?: true
@@ -14403,6 +14446,7 @@ export namespace Prisma {
     id?: true
     title?: true
     address?: true
+    currentId?: true
     price?: true
     pricePerM2?: true
     area?: true
@@ -14422,6 +14466,7 @@ export namespace Prisma {
     id?: true
     title?: true
     address?: true
+    currentId?: true
     price?: true
     pricePerM2?: true
     area?: true
@@ -14528,6 +14573,7 @@ export namespace Prisma {
     id: number
     title: string
     address: string
+    currentId: string | null
     price: number
     pricePerM2: number
     area: number
@@ -14566,6 +14612,7 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     address?: boolean
+    currentId?: boolean
     price?: boolean
     pricePerM2?: boolean
     area?: boolean
@@ -14587,6 +14634,7 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     address?: boolean
+    currentId?: boolean
     price?: boolean
     pricePerM2?: boolean
     area?: boolean
@@ -14606,6 +14654,7 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     address?: boolean
+    currentId?: boolean
     price?: boolean
     pricePerM2?: boolean
     area?: boolean
@@ -14625,6 +14674,7 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     address?: boolean
+    currentId?: boolean
     price?: boolean
     pricePerM2?: boolean
     area?: boolean
@@ -14640,7 +14690,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type CommercialPropertyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "address" | "price" | "pricePerM2" | "area" | "city" | "lat" | "lng" | "hasFinishing" | "purpose" | "metro" | "metroDistance" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["commercialProperty"]>
+  export type CommercialPropertyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "address" | "currentId" | "price" | "pricePerM2" | "area" | "city" | "lat" | "lng" | "hasFinishing" | "purpose" | "metro" | "metroDistance" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["commercialProperty"]>
   export type CommercialPropertyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     images?: boolean | CommercialProperty$imagesArgs<ExtArgs>
     _count?: boolean | CommercialPropertyCountOutputTypeDefaultArgs<ExtArgs>
@@ -14657,6 +14707,7 @@ export namespace Prisma {
       id: number
       title: string
       address: string
+      currentId: string | null
       price: number
       pricePerM2: number
       area: number
@@ -15097,6 +15148,7 @@ export namespace Prisma {
     readonly id: FieldRef<"CommercialProperty", 'Int'>
     readonly title: FieldRef<"CommercialProperty", 'String'>
     readonly address: FieldRef<"CommercialProperty", 'String'>
+    readonly currentId: FieldRef<"CommercialProperty", 'String'>
     readonly price: FieldRef<"CommercialProperty", 'Int'>
     readonly pricePerM2: FieldRef<"CommercialProperty", 'Int'>
     readonly area: FieldRef<"CommercialProperty", 'Int'>
@@ -15685,6 +15737,7 @@ export namespace Prisma {
     bedrooms: 'bedrooms',
     floor: 'floor',
     totalFloors: 'totalFloors',
+    currentId: 'currentId',
     lat: 'lat',
     lng: 'lng',
     metro: 'metro',
@@ -15707,6 +15760,7 @@ export namespace Prisma {
     bedrooms: 'bedrooms',
     lat: 'lat',
     lng: 'lng',
+    currentId: 'currentId',
     floor: 'floor',
     totalFloors: 'totalFloors',
     city: 'city',
@@ -15728,6 +15782,7 @@ export namespace Prisma {
     metroDistance: 'metroDistance',
     city: 'city',
     price: 'price',
+    currentId: 'currentId',
     lat: 'lat',
     lng: 'lng',
     landArea: 'landArea',
@@ -15746,6 +15801,7 @@ export namespace Prisma {
     id: 'id',
     title: 'title',
     address: 'address',
+    currentId: 'currentId',
     price: 'price',
     pricePerM2: 'pricePerM2',
     area: 'area',
@@ -16512,6 +16568,7 @@ export namespace Prisma {
     bedrooms?: IntFilter<"ReadyApartment"> | number
     floor?: IntFilter<"ReadyApartment"> | number
     totalFloors?: IntFilter<"ReadyApartment"> | number
+    currentId?: StringNullableFilter<"ReadyApartment"> | string | null
     lat?: FloatNullableFilter<"ReadyApartment"> | number | null
     lng?: FloatNullableFilter<"ReadyApartment"> | number | null
     metro?: StringNullableFilter<"ReadyApartment"> | string | null
@@ -16535,6 +16592,7 @@ export namespace Prisma {
     bedrooms?: SortOrder
     floor?: SortOrder
     totalFloors?: SortOrder
+    currentId?: SortOrderInput | SortOrder
     lat?: SortOrderInput | SortOrder
     lng?: SortOrderInput | SortOrder
     metro?: SortOrderInput | SortOrder
@@ -16561,6 +16619,7 @@ export namespace Prisma {
     bedrooms?: IntFilter<"ReadyApartment"> | number
     floor?: IntFilter<"ReadyApartment"> | number
     totalFloors?: IntFilter<"ReadyApartment"> | number
+    currentId?: StringNullableFilter<"ReadyApartment"> | string | null
     lat?: FloatNullableFilter<"ReadyApartment"> | number | null
     lng?: FloatNullableFilter<"ReadyApartment"> | number | null
     metro?: StringNullableFilter<"ReadyApartment"> | string | null
@@ -16584,6 +16643,7 @@ export namespace Prisma {
     bedrooms?: SortOrder
     floor?: SortOrder
     totalFloors?: SortOrder
+    currentId?: SortOrderInput | SortOrder
     lat?: SortOrderInput | SortOrder
     lng?: SortOrderInput | SortOrder
     metro?: SortOrderInput | SortOrder
@@ -16614,6 +16674,7 @@ export namespace Prisma {
     bedrooms?: IntWithAggregatesFilter<"ReadyApartment"> | number
     floor?: IntWithAggregatesFilter<"ReadyApartment"> | number
     totalFloors?: IntWithAggregatesFilter<"ReadyApartment"> | number
+    currentId?: StringNullableWithAggregatesFilter<"ReadyApartment"> | string | null
     lat?: FloatNullableWithAggregatesFilter<"ReadyApartment"> | number | null
     lng?: FloatNullableWithAggregatesFilter<"ReadyApartment"> | number | null
     metro?: StringNullableWithAggregatesFilter<"ReadyApartment"> | string | null
@@ -16636,6 +16697,7 @@ export namespace Prisma {
     bedrooms?: IntFilter<"RentalApartment"> | number
     lat?: FloatNullableFilter<"RentalApartment"> | number | null
     lng?: FloatNullableFilter<"RentalApartment"> | number | null
+    currentId?: StringNullableFilter<"RentalApartment"> | string | null
     floor?: IntFilter<"RentalApartment"> | number
     totalFloors?: IntFilter<"RentalApartment"> | number
     city?: StringNullableFilter<"RentalApartment"> | string | null
@@ -16656,6 +16718,7 @@ export namespace Prisma {
     bedrooms?: SortOrder
     lat?: SortOrderInput | SortOrder
     lng?: SortOrderInput | SortOrder
+    currentId?: SortOrderInput | SortOrder
     floor?: SortOrder
     totalFloors?: SortOrder
     city?: SortOrderInput | SortOrder
@@ -16679,6 +16742,7 @@ export namespace Prisma {
     bedrooms?: IntFilter<"RentalApartment"> | number
     lat?: FloatNullableFilter<"RentalApartment"> | number | null
     lng?: FloatNullableFilter<"RentalApartment"> | number | null
+    currentId?: StringNullableFilter<"RentalApartment"> | string | null
     floor?: IntFilter<"RentalApartment"> | number
     totalFloors?: IntFilter<"RentalApartment"> | number
     city?: StringNullableFilter<"RentalApartment"> | string | null
@@ -16699,6 +16763,7 @@ export namespace Prisma {
     bedrooms?: SortOrder
     lat?: SortOrderInput | SortOrder
     lng?: SortOrderInput | SortOrder
+    currentId?: SortOrderInput | SortOrder
     floor?: SortOrder
     totalFloors?: SortOrder
     city?: SortOrderInput | SortOrder
@@ -16726,6 +16791,7 @@ export namespace Prisma {
     bedrooms?: IntWithAggregatesFilter<"RentalApartment"> | number
     lat?: FloatNullableWithAggregatesFilter<"RentalApartment"> | number | null
     lng?: FloatNullableWithAggregatesFilter<"RentalApartment"> | number | null
+    currentId?: StringNullableWithAggregatesFilter<"RentalApartment"> | string | null
     floor?: IntWithAggregatesFilter<"RentalApartment"> | number
     totalFloors?: IntWithAggregatesFilter<"RentalApartment"> | number
     city?: StringNullableWithAggregatesFilter<"RentalApartment"> | string | null
@@ -16747,6 +16813,7 @@ export namespace Prisma {
     metroDistance?: IntNullableFilter<"CountryProperty"> | number | null
     city?: StringNullableFilter<"CountryProperty"> | string | null
     price?: IntFilter<"CountryProperty"> | number
+    currentId?: StringNullableFilter<"CountryProperty"> | string | null
     lat?: FloatNullableFilter<"CountryProperty"> | number | null
     lng?: FloatNullableFilter<"CountryProperty"> | number | null
     landArea?: IntFilter<"CountryProperty"> | number
@@ -16767,6 +16834,7 @@ export namespace Prisma {
     metroDistance?: SortOrderInput | SortOrder
     city?: SortOrderInput | SortOrder
     price?: SortOrder
+    currentId?: SortOrderInput | SortOrder
     lat?: SortOrderInput | SortOrder
     lng?: SortOrderInput | SortOrder
     landArea?: SortOrder
@@ -16790,6 +16858,7 @@ export namespace Prisma {
     metroDistance?: IntNullableFilter<"CountryProperty"> | number | null
     city?: StringNullableFilter<"CountryProperty"> | string | null
     price?: IntFilter<"CountryProperty"> | number
+    currentId?: StringNullableFilter<"CountryProperty"> | string | null
     lat?: FloatNullableFilter<"CountryProperty"> | number | null
     lng?: FloatNullableFilter<"CountryProperty"> | number | null
     landArea?: IntFilter<"CountryProperty"> | number
@@ -16810,6 +16879,7 @@ export namespace Prisma {
     metroDistance?: SortOrderInput | SortOrder
     city?: SortOrderInput | SortOrder
     price?: SortOrder
+    currentId?: SortOrderInput | SortOrder
     lat?: SortOrderInput | SortOrder
     lng?: SortOrderInput | SortOrder
     landArea?: SortOrder
@@ -16837,6 +16907,7 @@ export namespace Prisma {
     metroDistance?: IntNullableWithAggregatesFilter<"CountryProperty"> | number | null
     city?: StringNullableWithAggregatesFilter<"CountryProperty"> | string | null
     price?: IntWithAggregatesFilter<"CountryProperty"> | number
+    currentId?: StringNullableWithAggregatesFilter<"CountryProperty"> | string | null
     lat?: FloatNullableWithAggregatesFilter<"CountryProperty"> | number | null
     lng?: FloatNullableWithAggregatesFilter<"CountryProperty"> | number | null
     landArea?: IntWithAggregatesFilter<"CountryProperty"> | number
@@ -16855,6 +16926,7 @@ export namespace Prisma {
     id?: IntFilter<"CommercialProperty"> | number
     title?: StringFilter<"CommercialProperty"> | string
     address?: StringFilter<"CommercialProperty"> | string
+    currentId?: StringNullableFilter<"CommercialProperty"> | string | null
     price?: IntFilter<"CommercialProperty"> | number
     pricePerM2?: IntFilter<"CommercialProperty"> | number
     area?: IntFilter<"CommercialProperty"> | number
@@ -16875,6 +16947,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     address?: SortOrder
+    currentId?: SortOrderInput | SortOrder
     price?: SortOrder
     pricePerM2?: SortOrder
     area?: SortOrder
@@ -16898,6 +16971,7 @@ export namespace Prisma {
     NOT?: CommercialPropertyWhereInput | CommercialPropertyWhereInput[]
     title?: StringFilter<"CommercialProperty"> | string
     address?: StringFilter<"CommercialProperty"> | string
+    currentId?: StringNullableFilter<"CommercialProperty"> | string | null
     price?: IntFilter<"CommercialProperty"> | number
     pricePerM2?: IntFilter<"CommercialProperty"> | number
     area?: IntFilter<"CommercialProperty"> | number
@@ -16918,6 +16992,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     address?: SortOrder
+    currentId?: SortOrderInput | SortOrder
     price?: SortOrder
     pricePerM2?: SortOrder
     area?: SortOrder
@@ -16945,6 +17020,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"CommercialProperty"> | number
     title?: StringWithAggregatesFilter<"CommercialProperty"> | string
     address?: StringWithAggregatesFilter<"CommercialProperty"> | string
+    currentId?: StringNullableWithAggregatesFilter<"CommercialProperty"> | string | null
     price?: IntWithAggregatesFilter<"CommercialProperty"> | number
     pricePerM2?: IntWithAggregatesFilter<"CommercialProperty"> | number
     area?: IntWithAggregatesFilter<"CommercialProperty"> | number
@@ -17644,6 +17720,7 @@ export namespace Prisma {
     bedrooms: number
     floor: number
     totalFloors: number
+    currentId?: string | null
     lat?: number | null
     lng?: number | null
     metro?: string | null
@@ -17667,6 +17744,7 @@ export namespace Prisma {
     bedrooms: number
     floor: number
     totalFloors: number
+    currentId?: string | null
     lat?: number | null
     lng?: number | null
     metro?: string | null
@@ -17689,6 +17767,7 @@ export namespace Prisma {
     bedrooms?: IntFieldUpdateOperationsInput | number
     floor?: IntFieldUpdateOperationsInput | number
     totalFloors?: IntFieldUpdateOperationsInput | number
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
     metro?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17712,6 +17791,7 @@ export namespace Prisma {
     bedrooms?: IntFieldUpdateOperationsInput | number
     floor?: IntFieldUpdateOperationsInput | number
     totalFloors?: IntFieldUpdateOperationsInput | number
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
     metro?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17735,6 +17815,7 @@ export namespace Prisma {
     bedrooms: number
     floor: number
     totalFloors: number
+    currentId?: string | null
     lat?: number | null
     lng?: number | null
     metro?: string | null
@@ -17756,6 +17837,7 @@ export namespace Prisma {
     bedrooms?: IntFieldUpdateOperationsInput | number
     floor?: IntFieldUpdateOperationsInput | number
     totalFloors?: IntFieldUpdateOperationsInput | number
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
     metro?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17778,6 +17860,7 @@ export namespace Prisma {
     bedrooms?: IntFieldUpdateOperationsInput | number
     floor?: IntFieldUpdateOperationsInput | number
     totalFloors?: IntFieldUpdateOperationsInput | number
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
     metro?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17796,6 +17879,7 @@ export namespace Prisma {
     bedrooms: number
     lat?: number | null
     lng?: number | null
+    currentId?: string | null
     floor: number
     totalFloors: number
     city?: string | null
@@ -17816,6 +17900,7 @@ export namespace Prisma {
     bedrooms: number
     lat?: number | null
     lng?: number | null
+    currentId?: string | null
     floor: number
     totalFloors: number
     city?: string | null
@@ -17835,6 +17920,7 @@ export namespace Prisma {
     bedrooms?: IntFieldUpdateOperationsInput | number
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     floor?: IntFieldUpdateOperationsInput | number
     totalFloors?: IntFieldUpdateOperationsInput | number
     city?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17855,6 +17941,7 @@ export namespace Prisma {
     bedrooms?: IntFieldUpdateOperationsInput | number
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     floor?: IntFieldUpdateOperationsInput | number
     totalFloors?: IntFieldUpdateOperationsInput | number
     city?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17875,6 +17962,7 @@ export namespace Prisma {
     bedrooms: number
     lat?: number | null
     lng?: number | null
+    currentId?: string | null
     floor: number
     totalFloors: number
     city?: string | null
@@ -17893,6 +17981,7 @@ export namespace Prisma {
     bedrooms?: IntFieldUpdateOperationsInput | number
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     floor?: IntFieldUpdateOperationsInput | number
     totalFloors?: IntFieldUpdateOperationsInput | number
     city?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17912,6 +18001,7 @@ export namespace Prisma {
     bedrooms?: IntFieldUpdateOperationsInput | number
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     floor?: IntFieldUpdateOperationsInput | number
     totalFloors?: IntFieldUpdateOperationsInput | number
     city?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17929,6 +18019,7 @@ export namespace Prisma {
     metroDistance?: number | null
     city?: string | null
     price: number
+    currentId?: string | null
     lat?: number | null
     lng?: number | null
     landArea: number
@@ -17949,6 +18040,7 @@ export namespace Prisma {
     metroDistance?: number | null
     city?: string | null
     price: number
+    currentId?: string | null
     lat?: number | null
     lng?: number | null
     landArea: number
@@ -17968,6 +18060,7 @@ export namespace Prisma {
     metroDistance?: NullableIntFieldUpdateOperationsInput | number | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
     price?: IntFieldUpdateOperationsInput | number
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
     landArea?: IntFieldUpdateOperationsInput | number
@@ -17988,6 +18081,7 @@ export namespace Prisma {
     metroDistance?: NullableIntFieldUpdateOperationsInput | number | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
     price?: IntFieldUpdateOperationsInput | number
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
     landArea?: IntFieldUpdateOperationsInput | number
@@ -18008,6 +18102,7 @@ export namespace Prisma {
     metroDistance?: number | null
     city?: string | null
     price: number
+    currentId?: string | null
     lat?: number | null
     lng?: number | null
     landArea: number
@@ -18026,6 +18121,7 @@ export namespace Prisma {
     metroDistance?: NullableIntFieldUpdateOperationsInput | number | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
     price?: IntFieldUpdateOperationsInput | number
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
     landArea?: IntFieldUpdateOperationsInput | number
@@ -18045,6 +18141,7 @@ export namespace Prisma {
     metroDistance?: NullableIntFieldUpdateOperationsInput | number | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
     price?: IntFieldUpdateOperationsInput | number
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
     landArea?: IntFieldUpdateOperationsInput | number
@@ -18059,6 +18156,7 @@ export namespace Prisma {
   export type CommercialPropertyCreateInput = {
     title: string
     address: string
+    currentId?: string | null
     price: number
     pricePerM2: number
     area: number
@@ -18079,6 +18177,7 @@ export namespace Prisma {
     id?: number
     title: string
     address: string
+    currentId?: string | null
     price: number
     pricePerM2: number
     area: number
@@ -18098,6 +18197,7 @@ export namespace Prisma {
   export type CommercialPropertyUpdateInput = {
     title?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     price?: IntFieldUpdateOperationsInput | number
     pricePerM2?: IntFieldUpdateOperationsInput | number
     area?: IntFieldUpdateOperationsInput | number
@@ -18118,6 +18218,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     price?: IntFieldUpdateOperationsInput | number
     pricePerM2?: IntFieldUpdateOperationsInput | number
     area?: IntFieldUpdateOperationsInput | number
@@ -18138,6 +18239,7 @@ export namespace Prisma {
     id?: number
     title: string
     address: string
+    currentId?: string | null
     price: number
     pricePerM2: number
     area: number
@@ -18156,6 +18258,7 @@ export namespace Prisma {
   export type CommercialPropertyUpdateManyMutationInput = {
     title?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     price?: IntFieldUpdateOperationsInput | number
     pricePerM2?: IntFieldUpdateOperationsInput | number
     area?: IntFieldUpdateOperationsInput | number
@@ -18175,6 +18278,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     price?: IntFieldUpdateOperationsInput | number
     pricePerM2?: IntFieldUpdateOperationsInput | number
     area?: IntFieldUpdateOperationsInput | number
@@ -18909,6 +19013,7 @@ export namespace Prisma {
     bedrooms?: SortOrder
     floor?: SortOrder
     totalFloors?: SortOrder
+    currentId?: SortOrder
     lat?: SortOrder
     lng?: SortOrder
     metro?: SortOrder
@@ -18944,6 +19049,7 @@ export namespace Prisma {
     bedrooms?: SortOrder
     floor?: SortOrder
     totalFloors?: SortOrder
+    currentId?: SortOrder
     lat?: SortOrder
     lng?: SortOrder
     metro?: SortOrder
@@ -18966,6 +19072,7 @@ export namespace Prisma {
     bedrooms?: SortOrder
     floor?: SortOrder
     totalFloors?: SortOrder
+    currentId?: SortOrder
     lat?: SortOrder
     lng?: SortOrder
     metro?: SortOrder
@@ -18998,6 +19105,7 @@ export namespace Prisma {
     bedrooms?: SortOrder
     lat?: SortOrder
     lng?: SortOrder
+    currentId?: SortOrder
     floor?: SortOrder
     totalFloors?: SortOrder
     city?: SortOrder
@@ -19029,6 +19137,7 @@ export namespace Prisma {
     bedrooms?: SortOrder
     lat?: SortOrder
     lng?: SortOrder
+    currentId?: SortOrder
     floor?: SortOrder
     totalFloors?: SortOrder
     city?: SortOrder
@@ -19048,6 +19157,7 @@ export namespace Prisma {
     bedrooms?: SortOrder
     lat?: SortOrder
     lng?: SortOrder
+    currentId?: SortOrder
     floor?: SortOrder
     totalFloors?: SortOrder
     city?: SortOrder
@@ -19078,6 +19188,7 @@ export namespace Prisma {
     metroDistance?: SortOrder
     city?: SortOrder
     price?: SortOrder
+    currentId?: SortOrder
     lat?: SortOrder
     lng?: SortOrder
     landArea?: SortOrder
@@ -19109,6 +19220,7 @@ export namespace Prisma {
     metroDistance?: SortOrder
     city?: SortOrder
     price?: SortOrder
+    currentId?: SortOrder
     lat?: SortOrder
     lng?: SortOrder
     landArea?: SortOrder
@@ -19128,6 +19240,7 @@ export namespace Prisma {
     metroDistance?: SortOrder
     city?: SortOrder
     price?: SortOrder
+    currentId?: SortOrder
     lat?: SortOrder
     lng?: SortOrder
     landArea?: SortOrder
@@ -19155,6 +19268,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     address?: SortOrder
+    currentId?: SortOrder
     price?: SortOrder
     pricePerM2?: SortOrder
     area?: SortOrder
@@ -19184,6 +19298,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     address?: SortOrder
+    currentId?: SortOrder
     price?: SortOrder
     pricePerM2?: SortOrder
     area?: SortOrder
@@ -19203,6 +19318,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     address?: SortOrder
+    currentId?: SortOrder
     price?: SortOrder
     pricePerM2?: SortOrder
     area?: SortOrder
@@ -20083,6 +20199,7 @@ export namespace Prisma {
     bedrooms: number
     floor: number
     totalFloors: number
+    currentId?: string | null
     lat?: number | null
     lng?: number | null
     metro?: string | null
@@ -20105,6 +20222,7 @@ export namespace Prisma {
     bedrooms: number
     floor: number
     totalFloors: number
+    currentId?: string | null
     lat?: number | null
     lng?: number | null
     metro?: string | null
@@ -20128,6 +20246,7 @@ export namespace Prisma {
     bedrooms: number
     lat?: number | null
     lng?: number | null
+    currentId?: string | null
     floor: number
     totalFloors: number
     city?: string | null
@@ -20147,6 +20266,7 @@ export namespace Prisma {
     bedrooms: number
     lat?: number | null
     lng?: number | null
+    currentId?: string | null
     floor: number
     totalFloors: number
     city?: string | null
@@ -20169,6 +20289,7 @@ export namespace Prisma {
     metroDistance?: number | null
     city?: string | null
     price: number
+    currentId?: string | null
     lat?: number | null
     lng?: number | null
     landArea: number
@@ -20188,6 +20309,7 @@ export namespace Prisma {
     metroDistance?: number | null
     city?: string | null
     price: number
+    currentId?: string | null
     lat?: number | null
     lng?: number | null
     landArea: number
@@ -20207,6 +20329,7 @@ export namespace Prisma {
   export type CommercialPropertyCreateWithoutImagesInput = {
     title: string
     address: string
+    currentId?: string | null
     price: number
     pricePerM2: number
     area: number
@@ -20226,6 +20349,7 @@ export namespace Prisma {
     id?: number
     title: string
     address: string
+    currentId?: string | null
     price: number
     pricePerM2: number
     area: number
@@ -20382,6 +20506,7 @@ export namespace Prisma {
     bedrooms?: IntFieldUpdateOperationsInput | number
     floor?: IntFieldUpdateOperationsInput | number
     totalFloors?: IntFieldUpdateOperationsInput | number
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
     metro?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20404,6 +20529,7 @@ export namespace Prisma {
     bedrooms?: IntFieldUpdateOperationsInput | number
     floor?: IntFieldUpdateOperationsInput | number
     totalFloors?: IntFieldUpdateOperationsInput | number
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
     metro?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20433,6 +20559,7 @@ export namespace Prisma {
     bedrooms?: IntFieldUpdateOperationsInput | number
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     floor?: IntFieldUpdateOperationsInput | number
     totalFloors?: IntFieldUpdateOperationsInput | number
     city?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20452,6 +20579,7 @@ export namespace Prisma {
     bedrooms?: IntFieldUpdateOperationsInput | number
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     floor?: IntFieldUpdateOperationsInput | number
     totalFloors?: IntFieldUpdateOperationsInput | number
     city?: NullableStringFieldUpdateOperationsInput | string | null
@@ -20480,6 +20608,7 @@ export namespace Prisma {
     metroDistance?: NullableIntFieldUpdateOperationsInput | number | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
     price?: IntFieldUpdateOperationsInput | number
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
     landArea?: IntFieldUpdateOperationsInput | number
@@ -20499,6 +20628,7 @@ export namespace Prisma {
     metroDistance?: NullableIntFieldUpdateOperationsInput | number | null
     city?: NullableStringFieldUpdateOperationsInput | string | null
     price?: IntFieldUpdateOperationsInput | number
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     lat?: NullableFloatFieldUpdateOperationsInput | number | null
     lng?: NullableFloatFieldUpdateOperationsInput | number | null
     landArea?: IntFieldUpdateOperationsInput | number
@@ -20524,6 +20654,7 @@ export namespace Prisma {
   export type CommercialPropertyUpdateWithoutImagesInput = {
     title?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     price?: IntFieldUpdateOperationsInput | number
     pricePerM2?: IntFieldUpdateOperationsInput | number
     area?: IntFieldUpdateOperationsInput | number
@@ -20543,6 +20674,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     title?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    currentId?: NullableStringFieldUpdateOperationsInput | string | null
     price?: IntFieldUpdateOperationsInput | number
     pricePerM2?: IntFieldUpdateOperationsInput | number
     area?: IntFieldUpdateOperationsInput | number

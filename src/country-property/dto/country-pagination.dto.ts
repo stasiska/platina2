@@ -66,6 +66,12 @@ export class CountryPaginationDto {
   @IsNumberString()
   minPrice?: string;
 
+  @ApiProperty({ example: '2', description: 'Id в crm', })
+  @IsOptional()
+  @IsString()
+  currentId?: string;
+
+
   @ApiProperty({ default: 0, description: 'Максимальная цена' })
   @IsOptional()
   @IsNumberString()

@@ -42,6 +42,10 @@ export class RentalApartmentResponseDto {
   @ApiProperty({ example: 'Таганская', description: 'Ближайшее метро', nullable: true })
   metro: string | null;
 
+  lat: number;
+  lng: number;
+  currentId: string;
+
   @ApiProperty({ example: 4, description: 'Расстояние до метро пешком (в минутах)', nullable: true })
   metroDistance: number | null;
 

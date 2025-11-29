@@ -62,6 +62,11 @@ export class CreateReadyApartmentDto {
   @IsString()
   metro?: string;
 
+  @ApiProperty({ example: '2', description: 'Id в crm', })
+  @IsOptional()
+  @IsString()
+  currentId?: string;
+
   @ApiProperty({ example: 8, description: 'Расстояние до метро пешком (в минутах)', nullable: true })
   @IsOptional()
   @IsInt()

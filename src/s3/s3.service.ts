@@ -9,6 +9,7 @@ import { PutObjectCommand } from '@aws-sdk/client-s3';
 import { s3Client, S3_BUCKET, S3_BASE_URL } from 'src/common/config/s3.config';
 import { v4 as uuidv4 } from 'uuid';
 import { UploadImagesDto } from './dto/upload-images.dto';
+import { AddImagesByUrlDto } from './dto/add-images-by-url.dto';
 
 type OwnerType =
   | 'newBuildingComplex'
@@ -124,5 +125,48 @@ export class S3Service {
     // await s3Client.send(new DeleteObjectCommand({ Bucket: S3_BUCKET, Key: key }));
 
     return this.prisma.image.delete({ where: { id } });
+  }
+
+  async addImagesByUrl(dto: AddImagesByUrlDto) {
+  const { ownerType, ownerId, urls } = dto;
+
+  // Карта соответствия ownerType → модель Prisma
+  const modelMap: Record<OwnerType, keyof PrismaService> = {
+    newBuildingComplex: 'newBuildingComplex',
+    newBuildingApartment: 'newBuildingApartment',
+    readyApartment: 'readyApartment',
+    rentalApartment: 'rentalApartment',
+    countryProperty: 'countryProperty',
+    commercialProperty: 'commercialProperty',
+  };
+
+  const modelName = modelMap[ownerType];
+  if (!modelName || !(modelName in this.prisma)) {
+    throw new BadRequestException(`Неподдерживаемый тип объекта: ${ownerType}`);
+  }
+
+  // Проверяем существование владельца
+  const ownerExists = await (this.prisma[modelName] as any).findUnique({
+    where: { id: Number(ownerId) },
+  });
+
+  if (!ownerExists) {
+    throw new BadRequestException(
+      `Объект типа "${ownerType}" с ID ${ownerId} не найден`,
+    );
+  }
+
+  // Формируем данные для createMany
+  const imageData = urls.map((url) => {
+    const data: any = { url };
+    const fieldName = `${ownerType}Id` as const;
+    data[fieldName] = Number(ownerId);
+    return data;
+  });
+
+  // Сохраняем в БД
+  return this.prisma.image.createManyAndReturn({
+    data: imageData,
+  });
   }
 }

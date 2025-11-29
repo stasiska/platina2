@@ -78,6 +78,8 @@ export class PropertyPaginationDto {
   
   lng?: number;
   
+  currentId?: string;
+
 
   @ApiProperty({ default: 1, description: 'Площадь' })
   @IsOptional()

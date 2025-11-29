@@ -52,6 +52,10 @@ export class CommercialPaginationDto {
   areaMax?: number;
 
   @IsOptional()
+  @IsString()
+  currentId?: string;
+
+  @IsOptional()
   @IsBooleanString()
   hasFinishing?: string;
 
