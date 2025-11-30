@@ -21,6 +21,10 @@ export class CreateCountryPropertyDto {
   @IsPositive()
   landArea: number; 
 
+  @IsOptional()
+  @IsString()
+  currentId?: string;
+
   @IsString()
   city: string;
 

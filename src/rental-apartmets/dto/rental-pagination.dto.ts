@@ -62,6 +62,8 @@ export class RentalPaginationDto {
   lat?: number;
   lng?: number;
 
+  currentId?: string;
+
   @IsOptional()
   @IsString()
   city?: string;

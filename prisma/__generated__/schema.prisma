@@ -211,9 +211,9 @@ model ReadyApartment {
   bedrooms    Int // количество спален (студия = 0)
   floor       Int // этаж
   totalFloors Int // всего этажей в здании
-
-  lat Float?
-  lng Float?
+  currentId   String? @default("-1")
+  lat         Float?
+  lng         Float?
 
   metro         String? // ближайшее метро (опционально)
   metroDistance Int? // расстояние до метро в минутах
@@ -243,8 +243,9 @@ model RentalApartment {
   pricePerMonth Int // цена аренды в месяц
   bedrooms      Int // количество спален (студия = 0)
 
-  lat Float?
-  lng Float?
+  lat       Float?
+  lng       Float?
+  currentId String? @default("-1")
 
   floor         Int // этаж
   totalFloors   Int // всего этажей в доме
@@ -277,6 +278,7 @@ model CountryProperty {
   metroDistance Int? // расстояние до метро в минутах
   city          String?
   price         Int // цена
+  currentId     String? @default("-1")
 
   lat Float?
   lng Float?
@@ -303,9 +305,10 @@ model CountryProperty {
 // CommercialProperty (коммерческая недвижимость)
 // -----------------------
 model CommercialProperty {
-  id      Int    @id @default(autoincrement())
-  title   String // название
-  address String // адрес
+  id        Int     @id @default(autoincrement())
+  title     String // название
+  address   String // адрес
+  currentId String? @default("-1")
 
   price      Int // цена
   pricePerM2 Int // цена за м²

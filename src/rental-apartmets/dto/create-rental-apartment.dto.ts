@@ -38,6 +38,10 @@ export class CreateRentalApartmentDto {
   @Min(0)
   metroDistance?: number;
 
+  @ApiPropertyOptional({ example: '2', description: 'Id в crm' })
+  @IsOptional()
+  @IsString()
+  currentId?: string;
   
     @ApiPropertyOptional({ example: 55.751244, description: 'Широта' })
     @IsOptional()

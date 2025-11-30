@@ -4,6 +4,7 @@ import { FilesInterceptor } from '@nestjs/platform-express';
 import { UploadImagesDto } from './dto/upload-images.dto';
 import { ApiTags } from '@nestjs/swagger';
 import { AdminGuard } from 'src/auth/guard/admin.guard';
+import { AddImagesByUrlDto } from './dto/add-images-by-url.dto';
 
 type OwnerType =
   | 'newBuildingComplex'
@@ -49,6 +50,11 @@ export class S3Controller {
     return this.s3Service.uploadMultiple(files, dto);
   }
 
+  @UseGuards(AdminGuard)
+  @Post('add-by-url')
+  async addImagesByUrl(@Body() dto: AddImagesByUrlDto) {
+    return this.s3Service.addImagesByUrl(dto);
+  }
 
   @Get('owner/:ownerType/:ownerId')
   async findByOwner(

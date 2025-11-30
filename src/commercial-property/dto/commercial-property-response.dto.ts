@@ -33,6 +33,9 @@ export class CommercialPropertyResponseDto {
   @ApiProperty({ example: 120, description: 'Площадь в м²' })
   area: number;
 
+  @ApiProperty({ example: '2', description: 'Id в crm', })
+  currentId: string;
+  
   @ApiProperty({ example: true, description: 'Есть ли отделка' })
   hasFinishing: boolean;
 
