@@ -21,7 +21,6 @@ export class CommercialPaginationDto {
   @IsOptional()
   @Type(() => Number)
   @IsPositive()
-  @Max(100)
   take?: number = 20;
 
   @IsOptional()

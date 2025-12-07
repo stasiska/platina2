@@ -23,7 +23,6 @@ export class PropertyPaginationDto {
   @IsOptional()
   @Type(() => Number)
   @IsPositive()
-  @Max(100)
   take?: number = 20;
 
   @ApiProperty({ default: 'createdAt', description: 'Сортировка' })
