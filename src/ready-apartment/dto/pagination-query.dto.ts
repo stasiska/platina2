@@ -22,7 +22,6 @@ export class PaginationQueryDto {
   @IsOptional()
   @Type(() => Number)
   @IsPositive()
-  @Max(100)
   @Transform(({ value }) => parseInt(value, 10))
   take?: number = 20;
 

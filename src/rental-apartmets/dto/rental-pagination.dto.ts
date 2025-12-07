@@ -20,7 +20,6 @@ export class RentalPaginationDto {
   @IsOptional()
   @Type(() => Number)
   @IsPositive()
-  @Max(100)
   take?: number = 20;
 
   @IsOptional()
