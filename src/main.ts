@@ -11,6 +11,13 @@ async function bootstrap() {
   const config = app.get(ConfigService);
   app.use(cookieParser(config.getOrThrow<string>('COOKIES_SECRET')));
 
+  app.use((req, res, next) => {
+    if (req.headers['access-control-request-private-network'] === 'true') {
+      res.header('Access-Control-Allow-Private-Network', 'true');
+    }
+    next();
+  });
+  
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
   app.useGlobalFilters(new AllExceptionsFilter());
   const configSwagger = new DocumentBuilder()
@@ -23,10 +30,13 @@ async function bootstrap() {
   SwaggerModule.setup('docs', app, document, {
     swaggerOptions: { persistAuthorization: true },
   });
-  app.enableCors({
-    origin: "*",
-    credentials: true
-  })
+app.enableCors({
+    origin: true, 
+    credentials: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    allowedHeaders: 'Content-Type, Accept, Authorization',
+  });
+
   await app.listen(process.env.PORT);
   console.log("server started on port", process.env.PORT);
 
